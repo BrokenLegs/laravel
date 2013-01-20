@@ -13,12 +13,7 @@
     1px 1px 0 #000;
     margin-top: 50px;
 }
-.content{background-color: #fff; border:1px solid black; border-radius: 3px; 
-
--moz-box-shadow: 3px 3px 5px #606060;
--webkit-box-shadow: 3px 3px 5px #606060;
-box-shadow: 3px 3px 5px #606060;
-margin-bottom: 100px;}
+.content{background-color: #fff; border:1px solid black; border-radius: 3px; margin-bottom: 100px; padding-bottom: 50px;}
 body{/* IE10 Consumer Preview */ 
 background-image: -ms-linear-gradient(top, #43AA4A 0%, #010101 100%)!important;
 
