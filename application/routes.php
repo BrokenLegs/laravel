@@ -34,7 +34,6 @@
 
 Route::get('/', function()
 { 
-		
 });
 Route::get('about', function()
 {

@@ -3,6 +3,7 @@
     <ul class="nav nav-tabs" id="myTab">
     	<li class="active bigbtn"><a href="#veckans">Veckans rätter</a></li>
     	<li class="bigbtn"><a href="#menu">Vår meny</a></li>
+        <li class="bigbtn"><a href="#lunch">Frukost/Lunch</a></li>
     </ul> 
     <div class="tab-content">
     	<div class="offset1 tab-pane active" id="veckans">
@@ -100,6 +101,8 @@
     			<ul></ul>
     		</div>
     	</div>
+        <div class="offset1 tab-pane active" id="lunch">
+        </div>
     </div>
     <script> 
         $('#myTab a').click(function (e) {

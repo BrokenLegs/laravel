@@ -1,5 +1,5 @@
 <?php 
-class Weekly extends Eloquent{
+class weekly extends Eloquent{
 
 	public static $timestamps = false;
 }
