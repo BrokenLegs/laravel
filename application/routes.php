@@ -34,13 +34,15 @@
 
 Route::get('/', function()
 { 
-	
-
-	
+		
 });
 Route::get('about', function()
 {
 	return View::make('home.about');
+});
+Route::get('menu', function()
+{
+	return View::make('home.menu');
 });
 
 Route::controller(Controller::detect());

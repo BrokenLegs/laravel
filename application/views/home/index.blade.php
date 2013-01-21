@@ -1,6 +1,6 @@
 @layout('master')
 @section('content')
-	<div class="span5 leftcol">
+	<div class="offset1 span4 leftcol">
 	<br>
 		<h1>Öppettider</h1>
 		<br>

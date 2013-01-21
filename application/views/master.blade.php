@@ -11,6 +11,9 @@
 	{{HTML::Style('/css/bootstrap-responsive.min.css')}}
 	{{HTML::script('/js/jquery-1.9.0.min.js')}}	
 	{{HTML::script('/js/jquery.nivo.slider.js')}}
+	{{HTML::script('/js/bootstrap.js')}}
+	{{HTML::script('/js/bootstrap.min.js')}}
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Laravel: learning</title>
@@ -19,13 +22,14 @@
 <body>
 	<div class="container">	
 	<div class="offset1 span10 header">
-		{{HTML::image('/img/greencircle2.gif', 'logo');}}
+		{{HTML::image('/img/greencircle3.gif', 'logo');}}
 	</div>
 		<div class="navbar offset1 span10">
 		    <div class="navbar-inner">
 		   		<ul class="nav">
-		    		<li>{{HTML::link('/', 'Index')}}</li>
-					<li>{{HTML::link('about', 'About')}}</li>
+		    		<li>{{HTML::link('/', 'Hem')}}</li>
+					<li>{{HTML::link('menu', 'Vår mat')}}</li>
+					<li>{{HTML::link('about', 'Om')}}</li>
 			    </ul>
 		    </div>
 		</div>
