@@ -16,11 +16,17 @@
                     @foreach ($arrayDay as $day)
                         {{'<strong>'.$day->day.':'. $day->name . '</strong><span class="price">'.$day->price.':-</span><br>'}}
                         {{'<span class="menuDescription">'.$day->description.'</span><br>'}}
+                       
+                        {{Form::open('delete')}}
+                            {{Form::hidden('id', $day->id)}}                           
+                            {{Form::submit('delete')}}
+                        {{Form::close()}}
+
                     @endforeach
                 @endforeach
     		</div>
             <div class="offset1 span3">
-                {{Form::open('/')}}
+                {{Form::open('add')}}
                 {{Form::label('day', ('Dag'))}}
                     {{Form::text('day')}}
                 {{Form::label('name', ('Namn'))}}
@@ -36,7 +42,8 @@
     	<div class="tab-pane" id="menu">
     		<div class="span4">
     			<h3>Baguetter</h3>
-    			<ul><strong>
+    			<ul>
+                    <strong>
     					<li>Fetaost & Oliver <span class="price">35:-</span></li>
     					<li>Kycklingröra<span class="price">35:-</span></li>
     					<li>Köttbullar & Potatissallad<span class="price">35:-</span></li>
@@ -76,25 +83,24 @@
     		<div class="offset1 span4">
     			<h3>Varmrätter</h3>
     				<ul>
-	    				
-	    					<li><strong>Veckans rätter<span class="price">75:-</strong></span><br>
-	    						Veckans rätt inkl dryck, olika varje vecka
-	    					</li>
-	    					<li><strong>Nudelsoppa<span class="price">59:-</strong></span><br>
-	    						Räkor, Chikuwa, Böngroddar, Salladkål
-	    					</li>
-	    					<li><strong>Grillad Smörgås<span class="price">59:-</strong></span><br>
-	    						Välj mellan:<br>
-	    						Ost & Skinka / Kyckling & Mozzarella
-	    					</li>
-	    					<li><strong>Wraps Taco<span class="price">69:-</strong></span><br>
-	    						Tortilla, Köttfärs, Ost, Sås, Guacamole,
-								Grönsaker
-	    					</li>
-	    					<li><strong>Wraps Kyckling<span class="price">69:-</strong></span><br>
-	    						Tortilla, Kyckling, Valnötter, Sås, Grönsaker
-	    					</li>
-	    					<h4>Dricka ingår i alla rätter</h4>
+	    				<li><strong>Veckans rätter<span class="price">75:-</strong></span><br>
+	    					Veckans rätt inkl dryck, olika varje vecka
+	    				</li>
+	    				<li><strong>Nudelsoppa<span class="price">59:-</strong></span><br>
+	    					Räkor, Chikuwa, Böngroddar, Salladkål
+	    				</li>
+	    				<li><strong>Grillad Smörgås<span class="price">59:-</strong></span><br>
+	    					Välj mellan:<br>
+	    					Ost & Skinka / Kyckling & Mozzarella
+	    				</li>
+	    				<li><strong>Wraps Taco<span class="price">69:-</strong></span><br>
+	    					Tortilla, Köttfärs, Ost, Sås, Guacamole,
+							Grönsaker
+	    				</li>
+	    				<li><strong>Wraps Kyckling<span class="price">69:-</strong></span><br>
+	    					Tortilla, Kyckling, Valnötter, Sås, Grönsaker
+	    				</li>
+	    				<h4>Dricka ingår i alla rätter</h4>
     			</ul>
     			
     			<h3>Salladsbar</h3>

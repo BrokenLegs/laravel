@@ -37,7 +37,7 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
-Route::post('/', function()
+Route::post('add', function()
 { 
 	$day = Input::get('day');
 	$name = Input::get('name');
@@ -50,7 +50,14 @@ Route::post('/', function()
 		'name' => $name,
 		'price' => $price
 	));
-	return View::make('home.menu');
+	return Redirect::to('menu');
+});
+
+Route::post('delete', function(){
+	$id = Input::get('id');
+
+	Weekly::find($id)->delete();
+	return Redirect::to('menu');
 });
 
 Route::get('about', function()
