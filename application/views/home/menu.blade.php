@@ -6,20 +6,32 @@
         <li class="bigbtn"><a href="#lunch">Frukost/Lunch</a></li>
     </ul> 
     <div class="tab-content">
-    	<div class="offset1 tab-pane active" id="veckans">
-    		<h1>Veckans meny</h1>
-		<br>
-		<p>
-			<strong>
-				Måndag: Pasta Carbonara<br><br>
-				Tisdag: Spagetti Bolognese<br><br>
-				Onsdag:	Plankstek<br><br>
-				Torsdag: Pizza<br><br>
-				Fredag: Pyttipanna<br><br>
-				Lördag: Stekt kyckling<br><br>
-				Söndag: Piroger
-			</strong>
-		</p>
+    	<div class=" tab-pane active" id="veckans">
+            <div class="offset1 span4">
+        		<h3>Veckans meny</h3>
+    		<br>
+            
+    		
+    			@foreach ($weekly as $arrayDay) 
+                    @foreach ($arrayDay as $day)
+                        {{'<strong>'.$day->day.':'. $day->name . '</strong><span class="price">'.$day->price.':-</span><br>'}}
+                        {{'<span class="menuDescription">'.$day->description.'</span><br>'}}
+                    @endforeach
+                @endforeach
+    		</div>
+            <div class="offset1 span3">
+                {{Form::open('/')}}
+                {{Form::label('day', ('Dag'))}}
+                    {{Form::text('day')}}
+                {{Form::label('name', ('Namn'))}}
+                    {{Form::text('name')}}
+                {{Form::label('description', ('Description'))}}
+                    {{Form::text('description')}}
+                {{Form::label('price', ('Pris'))}}
+                    {{Form::number('price')}}
+                {{Form::submit('spara')}}
+            {{Form::close()}}
+            </div>
     	</div>
     	<div class="tab-pane" id="menu">
     		<div class="span4">

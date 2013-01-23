@@ -30,9 +30,10 @@ class Home_Controller extends Base_Controller {
 	|
 	*/
 
-	public function action_index()
-	{	$stuff = Weekly::all();
-		return View::make('home.index')->with('stuff', $stuff);
-	}
+	// public function action_index()
+	// {	
+	// 	return View::make('home.index')->with('stuff', $stuff);
+	// }
+
 
 }

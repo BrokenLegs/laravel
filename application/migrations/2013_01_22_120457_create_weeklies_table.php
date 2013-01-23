@@ -1,22 +1,22 @@
 <?php
 
-class Create_Weekly_Table {    
+class Create_Weeklies_Table {    
 
 	public function up()
     {
-		Schema::create('weekly', function($table) {
+		Schema::create('weeklies', function($table) {
 			$table->increments('id');
+			$table->string('day');
 			$table->string('name');
-			$table->integer('price');
 			$table->string('description');
-			$table->timestamps();
+			$table->integer('price');
 	});
 
     }    
 
 	public function down()
     {
-		Schema::drop('weekly');
+		Schema::drop('weeklies');
 
     }
 

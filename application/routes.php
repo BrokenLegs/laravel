@@ -34,17 +34,38 @@
 
 Route::get('/', function()
 { 
+	return View::make('home.index');
 });
+
+Route::post('/', function()
+{ 
+	$day = Input::get('day');
+	$name = Input::get('name');
+	$description = Input::get('description');
+	$price = Input::get('price');
+
+	Weekly::create(array(
+		'day' => $day,
+		'description' => $description,
+		'name' => $name,
+		'price' => $price
+	));
+	return View::make('home.menu');
+});
+
 Route::get('about', function()
 {
 	return View::make('home.about');
 });
 Route::get('menu', function()
 {
-	return View::make('home.menu');
+	$weekly = weekly::all();
+	// dd($weekly);
+	return View::make('home.menu')->with('weekly', array( $weekly));
+
 });
 
-Route::controller(Controller::detect());
+// Route::controller(Controller::detect());
 
 /*
 |--------------------------------------------------------------------------
