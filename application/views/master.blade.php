@@ -28,8 +28,8 @@
 		    <div class="navbar-inner">
 		   		<ul class="nav">
 		    		<li>{{HTML::link('/', 'Hem')}}</li>
-					<li>{{HTML::link('menu', 'Vår mat')}}</li>
-					<li>{{HTML::link('about', 'Om')}}</li>
+					<li>{{HTML::link('home/menu', 'Vår mat')}}</li>
+					<li>{{HTML::link('home/about', 'Om')}}</li>
 			    </ul>
 		    </div>
 		</div>

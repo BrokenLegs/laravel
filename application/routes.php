@@ -1,78 +1,15 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Simply tell Laravel the HTTP verbs and URIs it should respond to. It is a
-| breeze to setup your application using Laravel's RESTful routing and it
-| is perfectly suited for building large applications and simple APIs.
-|
-| Let's respond to a simple GET request to http://example.com/hello:
-|
-|		Route::get('hello', function()
-|		{
-|			return 'Hello World!';
-|		});
-|
-| You can even respond to more than one URI:
-|
-|		Route::post(array('hello', 'world'), function()
-|		{
-|			return 'Hello World!';
-|		});
-|
-| It's easy to allow URI wildcards using (:num) or (:any):
-|
-|		Route::put('hello/(:any)', function($name)
-|		{
-|			return "Welcome, $name.";
-|		});
-|
-*/
+// home Resource
+Route::get('/', array('as' => 'home', 'uses' => 'home@index'));
+Route::get('home', array('as' => 'home', 'uses' => 'home@index'));
+Route::get('home/new', array('as' => 'new_home', 'uses' => 'home@new'));
+Route::get('home/(:any)/edit', array('as' => 'edit_home', 'uses' => 'home@edit'));
+Route::post('home', 'home@create');
+Route::put('home/(:any)', 'home@update');
+Route::delete('home/(:any)', 'home@destroy');
 
-Route::get('/', function()
-{ 
-	return View::make('home.index');
-});
-
-Route::post('add', function()
-{ 
-	$day = Input::get('day');
-	$name = Input::get('name');
-	$description = Input::get('description');
-	$price = Input::get('price');
-
-	Weekly::create(array(
-		'day' => $day,
-		'description' => $description,
-		'name' => $name,
-		'price' => $price
-	));
-	return Redirect::to('menu');
-});
-
-Route::post('delete', function(){
-	$id = Input::get('id');
-
-	Weekly::find($id)->delete();
-	return Redirect::to('menu');
-});
-
-Route::get('about', function()
-{
-	return View::make('home.about');
-});
-Route::get('menu', function()
-{
-	$weekly = weekly::all();
-	// dd($weekly);
-	return View::make('home.menu')->with('weekly', array( $weekly));
-
-});
-
-// Route::controller(Controller::detect());
+Route::controller(Controller::detect());
 
 /*
 |--------------------------------------------------------------------------

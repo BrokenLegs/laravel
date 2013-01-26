@@ -9,34 +9,11 @@
     	<div class=" tab-pane active" id="veckans">
             <div class="offset1 span4">
         		<h3>Veckans meny</h3>
-    		<br>
-            
-    		
-    			@foreach ($weekly as $arrayDay) 
-                    @foreach ($arrayDay as $day)
-                        {{'<strong>'.$day->day.':'. $day->name . '</strong><span class="price">'.$day->price.':-</span><br>'}}
-                        {{'<span class="menuDescription">'.$day->description.'</span><br>'}}
-                       
-                        {{Form::open('delete')}}
-                            {{Form::hidden('id', $day->id)}}                           
-                            {{Form::submit('delete')}}
-                        {{Form::close()}}
-
-                    @endforeach
-                @endforeach
+    		<br> 		
+    			@include('partial.weeklymenu')
     		</div>
             <div class="offset1 span3">
-                {{Form::open('add')}}
-                {{Form::label('day', ('Dag'))}}
-                    {{Form::text('day')}}
-                {{Form::label('name', ('Namn'))}}
-                    {{Form::text('name')}}
-                {{Form::label('description', ('Description'))}}
-                    {{Form::text('description')}}
-                {{Form::label('price', ('Pris'))}}
-                    {{Form::number('price')}}
-                {{Form::submit('spara')}}
-            {{Form::close()}}
+               
             </div>
     	</div>
     	<div class="tab-pane" id="menu">

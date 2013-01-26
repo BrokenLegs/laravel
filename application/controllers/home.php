@@ -2,38 +2,67 @@
 
 class Home_Controller extends Base_Controller {
 
-	/*
-	|--------------------------------------------------------------------------
-	| The Default Controller
-	|--------------------------------------------------------------------------
-	|
-	| Instead of using RESTful routes and anonymous functions, you might wish
-	| to use controllers to organize your application API. You'll love them.
-	|
-	| This controller responds to URIs beginning with "home", and it also
-	| serves as the default controller for the application, meaning it
-	| handles requests to the root of the application.
-	|
-	| You can respond to GET requests to "/home/profile" like so:
-	|
-	|		public function action_profile()
-	|		{
-	|			return "This is your profile!";
-	|		}
-	|
-	| Any extra segments are passed to the method as parameters:
-	|
-	|		public function action_profile($id)
-	|		{
-	|			return "This is the profile for user {$id}.";
-	|		}
-	|
-	*/
+	public $restful = true;    
 
-	// public function action_index()
-	// {	
-	// 	return View::make('home.index')->with('stuff', $stuff);
-	// }
+	public function get_index()
+    {
+    	return View::make('home.index')->with('weekly', Weekly::all());
+    }    
 
+	public function get_menu()
+    {
+        return View::make('home.menu')->with('weekly', Weekly::all());
+    }    
+
+	public function get_about()
+    {
+    	return View::make('home.about');
+    }    
+
+	public function get_catering()
+    {
+
+    }
+
+    public function get_new()
+    {
+       return View::make('home.new');
+    }
+    public function post_new()
+    {
+        $day = Input::get('day');
+        $name = Input::get('name');
+        $description = Input::get('description');
+        $price = Input::get('price');
+
+        Weekly::create(array(
+            'day' => $day, 'description' => $description, 'name' => $name, 'price' => $price
+        ));
+        return Redirect::to('home/menu');
+    }
+    public function delete_destroy()
+    {
+         $id = Input::get('id');
+         Weekly::find($id)->delete();
+         return Redirect::to('home/menu');
+    }
+
+    public function get_edit($id)
+    {
+        return View::make('home.edit')->with('weekly' ,Weekly::find($id));
+    }
+
+    public function put_update()
+    {
+        $id = Input::get('id');
+        Weekly::update($id, array(
+                'name' => Input::get('name'),
+                'day' => Input::get('day'),
+                'price' => Input::get('price'),
+                'description' => Input::get('description')
+
+        ));
+        return Redirect::to('home/menu');
+    }
 
 }
