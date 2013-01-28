@@ -1,5 +1,6 @@
 @layout('master')
 @section('content')
+
 	<div class="offset1 span4 leftcol">
 		<div class="openinghours">
 			<br>
@@ -20,7 +21,7 @@
 		    411 02 GÖTEBORG<br><br>
 		    Kontakt<br>
 		    Telefon: 031-15 38 11
-		    tien@tienärmegafuckingawesome.com
+		    info@greencircle.com
 		    </strong
 		    </p>
 
@@ -32,7 +33,9 @@
 		<h1>Veckans meny</h1>
 		@include('partial.weeklymenu')
 	{{HTML::link_to_route('new_home', 'Lägg till');}}
-
+	</div>
+	<div class="offset1 span8 maps">
+		<iframe width="98%" height="350" frameborder="0" scrolling="no" marginheight="2" marginwidth="2" src="https://maps.google.se/maps?hl=sv&amp;q=Odinsplatsen+5,+411+02+G%C3%96TEBORG&amp;ie=UTF8&amp;hq=&amp;hnear=Odinsplatsen+5,+411+02+G%C3%B6teborg&amp;gl=se&amp;ll=57.709426,11.985551&amp;spn=0.006431,0.021136&amp;t=m&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.se/maps?hl=sv&amp;q=Odinsplatsen+5,+411+02+G%C3%96TEBORG&amp;ie=UTF8&amp;hq=&amp;hnear=Odinsplatsen+5,+411+02+G%C3%B6teborg&amp;gl=se&amp;ll=57.709426,11.985551&amp;spn=0.006431,0.021136&amp;t=m&amp;z=14&amp;source=embed" style="color:#0000FF;text-align:left">Visa större karta</a></small>
 	</div>
 @endsection 
 

@@ -13,7 +13,7 @@
 	{{HTML::script('/js/jquery.nivo.slider.js')}}
 	{{HTML::script('/js/bootstrap.js')}}
 	{{HTML::script('/js/bootstrap.min.js')}}
-
+	
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Laravel: learning</title>
