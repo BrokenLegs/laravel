@@ -9,6 +9,7 @@ Route::post('home', 'home@create');
 Route::put('home/(:any)', 'home@update');
 Route::delete('home/(:any)', 'home@destroy');
 
+
 Route::controller(Controller::detect());
 
 /*

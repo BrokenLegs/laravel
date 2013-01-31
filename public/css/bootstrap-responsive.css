@@ -446,6 +446,7 @@
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
+
   .row {
     margin-left: -20px;
     *zoom: 1;
@@ -884,7 +885,20 @@
   }
 }
 
+@media (min-width: 481px) and (max-width: 767px){
+    .slider-wrapper{display: none!important;}
+  body{text-align: center;}
+  .tab-pane li{margin-left: 35px; margin-top:10px;}
+  .price{padding-right: 20px;}
+  .tab-pane ul{width:70%;margin:auto;}
+}
+
 @media (max-width: 480px) {
+  .slider-wrapper{display: none!important;}
+  body{text-align: center;}
+  #mytab { background: red; height: 30px ;}
+  .tab-pane li{margin-left: 35px; margin-top:10px;}
+  .maps{display: none!important;}
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0);
   }

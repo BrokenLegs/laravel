@@ -20,7 +20,7 @@
 		    <strong>Odinsplatsen 5<br> 
 		    411 02 GÖTEBORG<br><br>
 		    Kontakt<br>
-		    Telefon: 031-15 38 11
+		    Telefon: 031-15 38 11<br>
 		    info@greencircle.com
 		    </strong
 		    </p>

@@ -13,7 +13,7 @@
 	{{HTML::script('/js/jquery.nivo.slider.js')}}
 	{{HTML::script('/js/bootstrap.js')}}
 	{{HTML::script('/js/bootstrap.min.js')}}
-	
+	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Laravel: learning</title>
@@ -30,6 +30,7 @@
 		    		<li>{{HTML::link('/', 'Hem')}}</li>
 					<li>{{HTML::link('home/menu', 'Vår mat')}}</li>
 					<li>{{HTML::link('home/about', 'Om')}}</li>
+					<li>{{HTML::link('home/catering', 'Catering')}}</li>
 			    </ul>
 		    </div>
 		</div>

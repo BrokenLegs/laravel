@@ -2,26 +2,25 @@
 
 class Home_Controller extends Base_Controller {
 
-	public $restful = true;    
+    public $restful = true;    
 
-	public function get_index()
+    public function get_index()
     {
-    	return View::make('home.index')->with('weekly', Weekly::all());
+        return View::make('home.index')->with('weekly', Weekly::all());
     }    
 
-	public function get_menu()
+    public function get_menu()
     {
         return View::make('home.menu')->with('weekly', Weekly::all());
     }    
 
-	public function get_about()
+    public function get_about()
     {
-    	return View::make('home.about');
+        return View::make('home.about');
     }    
 
-	public function get_catering()
-    {
-
+    public function get_catering(){
+        return View::make('home.catering');
     }
 
     public function get_new()
@@ -64,5 +63,4 @@ class Home_Controller extends Base_Controller {
         ));
         return Redirect::to('home/menu');
     }
-
 }

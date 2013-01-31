@@ -1,3 +1,4 @@
+*{box-sizing: border-box;}
 .leftcol{float: left;}
 .rightcol{float: right;}
 #greencircle{float: right; font-size: 77px;}
@@ -5,11 +6,12 @@
 .container{background-color:}
 .header{margin-top: 50px;}
 .content{background-color: #fff; border:1px solid black; border-radius: 3px; overflow: hidden; margin-bottom: 100px; padding-bottom: 30px;}
-.price{float: right;}
-#menu ul{width: 100%; margin-bottom: 40px;}
+.price{float: right; margin-right: 5px;}
+#menu ul{margin-bottom: 40px;}
 .dailydish{margin-bottom: 10px;}
 .openinghours{margin-bottom: 40px;}
 .maps{margin:auto; margin-top: 30px; }
+body{font-family: 'Libre Baskerville', serif!important;}
 .bigbtn{width: 33.3%; text-align: center; border-radius: 3px; 
 	/* IE10 Consumer Preview */ 
 	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #66CC66 100%);

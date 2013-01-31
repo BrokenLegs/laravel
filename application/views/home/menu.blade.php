@@ -19,7 +19,7 @@
     	<div class="tab-pane" id="menu">
     		<div class="span4">
     			<h3>Baguetter</h3>
-    			<ul>
+    			<ul class="span4">
                     <strong>
     					<li>Fetaost & Oliver <span class="price">35:-</span></li>
     					<li>Kycklingröra<span class="price">35:-</span></li>
@@ -35,7 +35,7 @@
     			</ul>
 
     			<h3>Dryck</h3>
-    			<ul>
+    			<ul class="span4">
     				<strong>
     					<li>Läsk<span class="price">12:-</span></li>
     					<li>Juice<span class="price">15:-</span></li>
@@ -47,8 +47,8 @@
     					<li>Te<span class="price">20:-</span></li>
     				</strong>
     			</ul>
-    			<h3>Beställning Smörgåstårta</h3>
-    			<ul>
+    			<h3>Beställning av smörgåstårta</h3>
+    			<ul class="span4">
     				<strong>
     					<li>Bit<span class="price">fr. 49:-</span></li>
     					<li>Landgångar<span class="price">75:-</span></li>
@@ -59,12 +59,12 @@
     		</div>
     		<div class="offset1 span4">
     			<h3>Varmrätter</h3>
-    				<ul>
+    				<ul class="span4">
 	    				<li><strong>Veckans rätter<span class="price">75:-</strong></span><br>
 	    					Veckans rätt inkl dryck, olika varje vecka
 	    				</li>
 	    				<li><strong>Nudelsoppa<span class="price">59:-</strong></span><br>
-	    					Räkor, Chikuwa, Böngroddar, Salladkål
+	    					Räkor, Chikuwa, Böngroddar, Salladskål
 	    				</li>
 	    				<li><strong>Grillad Smörgås<span class="price">59:-</strong></span><br>
 	    					Välj mellan:<br>
@@ -82,7 +82,7 @@
     			
     			<h3>Salladsbar</h3>
     			<h4>Mixa din egen sallad och välj mellan:</h4>
-    			<ul>
+    			<ul class="span4">
     				<li><strong>Kyckling<span class="price">65:-</span></strong></li>
     				<li><strong>Tonfisk<span class="price">65:-</span></strong></li>
     				<li><strong>Räkor<span class="price">69:-</span></strong></li>

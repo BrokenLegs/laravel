@@ -1,1 +1,1 @@
-This is the C:\Users\User\Documents\GitHub\laravel\application\views/home/catering.blade.php view
+@layout('master')
