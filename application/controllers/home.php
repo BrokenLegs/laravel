@@ -63,4 +63,14 @@ class Home_Controller extends Base_Controller {
         ));
         return Redirect::to('home/menu');
     }
+
+    public function post_search()
+    {
+        $searchword = Input::get('searchword');
+
+        $result = Weekly::where('*', 'LIKE', '%'.$searchword.'%')->get();
+
+        return View::make('home.searchresult')->with('searchresult', $result);
+
+    }
 }
