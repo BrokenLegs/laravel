@@ -68,7 +68,9 @@ class Home_Controller extends Base_Controller {
     {
         $searchword = Input::get('searchword');
 
-        $result = Weekly::where('*', 'LIKE', '%'.$searchword.'%')->get();
+        $result = Weekly::where('name', 'LIKE', '%'.$searchword.'%')
+                ->or_where('description', 'LIKE', '%'.$searchword.'%')
+                ->select('*')->get();
 
         return View::make('home.searchresult')->with('searchresult', $result);
 

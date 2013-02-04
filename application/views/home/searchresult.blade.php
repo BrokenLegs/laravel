@@ -1,7 +1,13 @@
-@layout('master')
+	@layout('master')
 
-@section('content')
-	
-	{{ HTML:: }}
+	@section('content')
 
-@endsection
+	@foreach($searchword as $word)
+
+		<div class="result">
+
+		</div>
+		
+	@endforeach
+
+	@endsection
