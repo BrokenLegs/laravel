@@ -12,6 +12,9 @@
 	{{HTML::script('/js/jquery.nivo.slider.js')}}
 	{{HTML::script('/js/bootstrap.js')}}
 	{{HTML::script('/js/bootstrap.min.js')}}
+	{{HTML::script('/js/script.js')}}
+	{{ HTML::script('js/jquery.watermarkinput.js') }}
+
 	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -33,7 +36,8 @@
 			    </ul>
 			    <div id="search">
 			    	{{Form::open('/home/search')}}
-						{{Form::search('searchword');}}
+
+						{{Form::search('searchword', '', array('class'=>"searchh"));}}
 					{{Form::close()}}
 				</div>
 		    </div>
@@ -59,6 +63,7 @@
         $('#slider').nivoSlider();
     });
     </script>
+   
 </body>
 </html>
 
