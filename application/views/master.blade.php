@@ -1,5 +1,4 @@
 <!doctype html>
-<html lang="en">
 <head>
 	{{HTML::Style('/css/style.css')}}
 	{{HTML::Style('/css/slider.css')}}
@@ -30,8 +29,13 @@
 		    		<li>{{HTML::link('/', 'Hem')}}</li>
 					<li>{{HTML::link('home/menu', 'Vår mat')}}</li>
 					<li>{{HTML::link('home/about', 'Om')}}</li>
-					<li>{{HTML::link('home/catering', 'Catering')}}</li>
+					<li>{{HTML::link('home/catering', 'Catering')}}</li>	
 			    </ul>
+			    <div id="search">
+			    	{{Form::open('/home/search')}}
+						{{Form::search('searchword');}}
+					{{Form::close()}}
+				</div>
 		    </div>
 		</div>
 		<div class="slider-wrapper theme-default offset1 span10">
