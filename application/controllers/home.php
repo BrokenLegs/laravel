@@ -72,7 +72,9 @@ class Home_Controller extends Base_Controller {
         ->or_where('description', 'LIKE', '%'.$searchword.'%')
         ->select('*')->get();
 
-        return View::make('home.search')->with('results', $result);
+        return View::make('home.search')
+            ->with('results', $result)
+            ->with('word', $searchword);
 
     }
 }
