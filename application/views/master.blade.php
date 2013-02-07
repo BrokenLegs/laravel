@@ -13,7 +13,8 @@
 	{{HTML::script('/js/bootstrap.js')}}
 	{{HTML::script('/js/bootstrap.min.js')}}
 	{{HTML::script('/js/script.js')}}
-	{{ HTML::script('js/jquery.watermarkinput.js') }}
+	{{HTML::script('js/jquery.watermarkinput.js') }}
+	{{HTML::Style('/css/font-awesome.min.css')}}
 
 	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
 	<meta charset="utf-8">
@@ -23,20 +24,22 @@
 </head>
 <body>
 	<div class="container">	
-	<div class="offset1 span10 header">
-		{{HTML::image('/img/greencircle3.gif', 'logo');}}
-	</div>
-		<div class="navbar offset1 span10">
+		<div class="offset1 span10 header">
+			{{HTML::image('/img/Skylt_Green_Circle.png', 'header-background', array('id' => 'headerBackground'));}}		
+				<div class="btn span6 hidden-menubtn" >
+					<a><i class="icon-chevron-down"></i><a/>
+				</div>
+		</div>
+
+		<div class="navmenu-hidden">
+			@include('partial.nav')
+		</div>
+
+		<div id="navbar" class="navbar offset1 span10">
 		    <div class="navbar-inner">
-		   		<ul class="nav">
-		    		<li>{{HTML::link('/', 'Hem')}}</li>
-					<li>{{HTML::link('home/menu', 'Vår mat')}}</li>
-					<li>{{HTML::link('home/about', 'Om')}}</li>
-					<li>{{HTML::link('home/catering', 'Catering')}}</li>	
-			    </ul>
+		   		@include('partial.nav')
 			    <div id="search">
 			    	{{Form::open('/home/search')}}
-
 						{{Form::search('searchword', '', array('class'=>"searchh"));}}
 					{{Form::close()}}
 				</div>
