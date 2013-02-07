@@ -891,12 +891,31 @@
   .tab-pane li{margin-left: 35px; margin-top:10px;}
   .price{padding-right: 20px;}
   .tab-pane ul{width:70%;margin:auto;}
+
+
 }
 
+/*Phonesize*/
 @media (max-width: 480px) {
+
+.hidden-menubtn{display:block!important;}
+#headerBackground{height: 70px;}
+.header{
+  margin:0px; padding:0px; 
+}
+  #navbar{
+    display: none!important;
+  }
+.navmenu-hidden{text-align: left;margin-bottom:20px;}
+.navmenu-hidden ul{list-style-type: none; margin:0px; padding: 0px; background-color: #f2f2f2;}
+
+.navmenu-hidden li{}
+.navmenu-hidden li a {color: #66cc66; padding: 5px;}
   .slider-wrapper{display: none!important;}
   body{text-align: center;}
   #mytab { background: red; height: 30px ;}
+  #mytab li{float: left;}
+
   .tab-pane li{margin-left: 35px; margin-top:10px;}
   .maps{display: none!important;}
   .nav-collapse {
@@ -949,6 +968,8 @@
     position: static;
   }
 }
+/*End phonesize*/
+
 
 @media (max-width: 979px) {
   body {
