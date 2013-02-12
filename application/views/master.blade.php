@@ -26,8 +26,8 @@
 	<div class="container">	
 		<div class="offset1 span10 header">
 			{{HTML::image('/img/Skylt_Green_Circle.png', 'header-background', array('id' => 'headerBackground'));}}		
-				<div class="btn span6 hidden-menubtn" >
-					<a><i class="icon-chevron-down"></i><a/>
+				<div class="btn span6 hidden-menubtn only-mobile main-menubtn" >
+					<a><i class="icon-reorder menu-icon"> Meny </i><a/>
 				</div>
 		</div>
 
@@ -40,7 +40,7 @@
 		   		@include('partial.nav')
 			    <div id="search">
 			    	{{Form::open('/home/search')}}
-						{{Form::search('searchword', '', array('class'=>"searchh"));}}
+						{{Form::search('searchword', '', array('class'=>"search "));}}
 					{{Form::close()}}
 				</div>
 		    </div>
