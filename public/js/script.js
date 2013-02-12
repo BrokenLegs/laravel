@@ -1,6 +1,6 @@
  $(document).ready(function () {
 
- 	$(".searchh").Watermark("Sök");
+ 	$(".search").Watermark("Sök");
 
 
  	$('.hidden-menubtn').click(function() {
