@@ -58,13 +58,22 @@
 			</div>
         </div>
 		<div class="content offset1 span10">
-			@yield('content')
+			<div class="content-wrapper">
+				@yield('content')
+			</div>
 		</div>		
 	</div>
     <script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();
     });
+    </script>
+    
+    <script> 
+        $("#myTab a").click(function (e) {
+		    e.preventDefault();
+		    $(this).tab("show");
+    	});
     </script>
    
 </body>
