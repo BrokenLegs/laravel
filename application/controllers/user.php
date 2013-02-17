@@ -11,8 +11,6 @@ class User_Controller extends Base_Controller {
 
     public function get_register(){
     	$user_data = Session::get('oneauth');
-
-    	
     	$userExist = DB::table('users')->where('uid', '=', $user_data['info']['uid'])->select('*')->first();
     	 // dd($userExist);
     	if(is_null($userExist)){
@@ -22,9 +20,10 @@ class User_Controller extends Base_Controller {
 	    	$user->image = $user_data['info']['image'];
 	    	$user->facebooklink = "http://www.facebook.com/" . $user_data['info']['nickname'];
 	    	$user->save();
-	    	return 'Hej ' . $user->name . '.sdogn';
+	    	return Redirect::to('home/rate')->with('status', 'Welcome Back!');
     	}else{   
-            return 'Hej '. $userExist->name;
+            // dd($user_data);
+            return Redirect::to('home/rate')->with('user_data', $user_data);
         }
 
     }
