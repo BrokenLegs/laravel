@@ -7,8 +7,4 @@
 		return $files;
 	}
 
-
-
-
-
 ?>

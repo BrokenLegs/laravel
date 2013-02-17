@@ -10,7 +10,7 @@
 	</div>
 	<div class="span9"> 
 		<div class="offset1 span7">
-		{{$status}}
+		
 			@if(is_null($status))
 				@include('partial.facebooklogin')
 			@endif

@@ -1,7 +1,6 @@
 <!doctype html>
 <head>
 	@include('includes.assets')
-
 	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,6 +9,7 @@
 </head>
 <body>
 	<div class="container">	
+
 		<div class="offset1 span10 header">
 			{{HTML::image('/img/Skylt_Green_Circle.png', 'header-background', array('id' => 'headerBackground'));}}		
 				<div class="btn span6 hidden-menubtn only-mobile main-menubtn" >
