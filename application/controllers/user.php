@@ -24,7 +24,11 @@ class User_Controller extends Base_Controller {
 	    	$user->save();
 	    	return 'Hej ' . $user->name . '.sdogn';
     	}else{   
+<<<<<<< HEAD
+            return Redirect::to('home/rate')->with('status', 'Welcome Back!');
+=======
             return 'Hej '. $userExist->name;
+>>>>>>> parent of 99168fc... innan jag börjar ändra i usern. allt funkar just nu
         }
 
     }
