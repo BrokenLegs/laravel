@@ -3,15 +3,14 @@
 <?php 
 	$score=7.7;
 	$amount_of_votes = 122;
-	$status = Session::get('user_data');
+	
 ?>
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
 	<div class="span9"> 
 		<div class="offset1 span7">
-		
-			@if(is_null($status))
+			@if(is_null($user_data))
 				@include('partial.facebooklogin')
 			@endif
     	</div>
@@ -24,7 +23,7 @@
 				<span class="qaz">Ditt betyg</span>
 				<div class="wsx">
 					{{Form::open()}}
-						{{Form::radio('myvote', 1 ,'', array('class="myvoteradio"'));}}
+						{{Form::radio('myvote', 1,'', array('class="myvoteradio"'));}}
 						{{Form::radio('myvote', 2,'', array('class="myvoteradio"'));}}
 						{{Form::radio('myvote', 3,'', array('class="myvoteradio"'));}}
 						{{Form::radio('myvote', 4,'', array('class="myvoteradio"'));}}
@@ -52,20 +51,22 @@
 			</div>-->
 	</div>
 	<script>
-		$('.myvoteradio').mouseover(function(){
-			if($('.myvoteradio').hasClass('selected')){
-				$value = $(this).attr('value');
-				$('.votevalue').html($value+'/10');	
-				$selectedValue = $('.selected').attr('value');
-				
-				$('.wsx').mouseout(function(){
-					$('.votevalue').html($selectedValue+'/10');				
-				});
+		
 
-			}else{
-				$value = $(this).attr('value');
-				$('.votevalue').html($value+'/10');	
-			}
+		
+		$('.myvoteradio').mouseover(function(){
+			$value = $(this).attr('value');
+			$('.votevalue').html($value+'/10');	
+				
+			$('.wsx').mouseout(function(){
+				if($('.myvoteradio').hasClass('selected')){
+					$selectedValue = $('.selected').attr('value');
+						$('.votevalue').html($selectedValue+'/10');
+				}else{
+					$value = $(this).attr('value');
+					$('.votevalue').html('-/10');
+				}
+			});
 		});
 		$('.myvoteradio').click(function(){
 			

@@ -84,6 +84,9 @@ class Home_Controller extends Base_Controller {
     public function get_rate(){
         $user_data = Session::get('oneauth');
         // dd($user_data);
-        return View::make('home.rate')->with('user_data', $user_data);
+    
+        return View::make('home.rate')
+        ->with('user_data', $user_data);
+        
     }
 }
