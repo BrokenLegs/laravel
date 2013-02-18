@@ -46,14 +46,17 @@
 			{{Form::submit('Skicka', array('class="btn-primary send"'))}}
 
 		</div>
-		<!--<div class="fbLogin span3">
-				{{HTML::link('connect/session/facebook', 'Login with facebook', array('class' => 'btn'))}}
-			</div>-->
+		<div class="offset1 span7 commentsContainer">
+			@foreach($comments as $comment)
+				<div class="comment">
+					<div class="span2">
+					</div>
+					{{$comment->user_uid;}}
+				</div>
+			@endforeach
+		</div>
 	</div>
 	<script>
-		
-
-		
 		$('.myvoteradio').mouseover(function(){
 			$value = $(this).attr('value');
 			$('.votevalue').html($value+'/10');	

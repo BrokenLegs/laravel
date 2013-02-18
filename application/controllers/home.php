@@ -83,10 +83,16 @@ class Home_Controller extends Base_Controller {
     }
     public function get_rate(){
         $user_data = Session::get('oneauth');
-        // dd($user_data);
-    
+        
+
+        // $user = user::with('comments')->where('users.uid', '=', 'comments.user_uid');
+
+        $comments = comment::all(); 
+        dd($user);
+          
         return View::make('home.rate')
-        ->with('user_data', $user_data);
+        ->with('user_data', $user_data)
+        ->with('comments', $comments);
         
     }
 }
