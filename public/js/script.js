@@ -47,7 +47,7 @@
 
  	        $(function(){
                 $('.commentlist').scrollPagination({
-                    'contentPage': '.home/rate', // the url you are fetching the results
+                    'contentPage': 'comments.html', // the url you are fetching the results
                     'contentData': {}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
                     'scrollTarget': $(window), // who gonna scroll? in this example, the full window
                     'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
