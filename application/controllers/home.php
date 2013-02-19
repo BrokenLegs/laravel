@@ -87,7 +87,10 @@ class Home_Controller extends Base_Controller {
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
             ->get();
-          
+            // dd($user);
+        
+        // $orders = DB::->paginate(2);
+
         return View::make('home.rate')
         ->with('user_data', $user_data)
         ->with('comments', $user);
