@@ -92,8 +92,7 @@ class Home_Controller extends Base_Controller {
         // $orders = DB::->paginate(2);
 
         return View::make('home.rate')
-        ->with('user_data', $user_data)
-        ->with('comments', $user);
+        ->with('user_data', $user_data); 
         
     }
 
