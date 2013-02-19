@@ -47,34 +47,26 @@
 
 		</div>
 		<div class="offset1 span7 commentsContainer">
+			Detta har andra skrivit
 			@foreach($comments as $comment)
 				<div class="comment">
-					<div class="span2">
+					<div class="">
+						{{HTML::image($comment->image , '', array('class="fbimg"'));}}
+						<div>
+						{{HTML::link($comment->facebooklink, $comment->name, array('target="_blank" class="fblink"'));}}
+						</div>
+						<div class="">
+							{{$comment->body}}
+						</div>
+
+						
 					</div>
-					{{$comment->user_uid;}}
+					<div class="">
+						
+					</div>
 				</div>
 			@endforeach
 		</div>
 	</div>
-	<script>
-		$('.myvoteradio').mouseover(function(){
-			$value = $(this).attr('value');
-			$('.votevalue').html($value+'/10');	
-				
-			$('.wsx').mouseout(function(){
-				if($('.myvoteradio').hasClass('selected')){
-					$selectedValue = $('.selected').attr('value');
-						$('.votevalue').html($selectedValue+'/10');
-				}else{
-					$value = $(this).attr('value');
-					$('.votevalue').html('-/10');
-				}
-			});
-		});
-		$('.myvoteradio').click(function(){
-			
-			$(this).addClass('selected').siblings().removeClass('selected');;
-			$('.myvoteradio').css("");	
-		});
-	</script>
+	
 @endsection

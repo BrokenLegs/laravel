@@ -31,6 +31,10 @@ form{margin:0px!important;}
 .ratingstar{position: relative;bottom: 20px; z-index: 0;}
 .commentfield{width:100%; min-width: 100%; min-height: 100px; max-width:100%;max-height: 100px;}
 .send{width: 100px!important; height: 30px; border-radius: 5px;}
+.commentsContainer{border: 1px dashed black;}
+.fbimg{height: 50px; width: 50px; padding-top: 0px;}
+.comment{margin:0px 0 15px 0;}
+.fblink{position: relative;bottom: 10px;}
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;
