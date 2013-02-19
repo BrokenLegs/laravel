@@ -30,5 +30,19 @@
 			$('.myvoteradio').css("");	
 		});
 	// slut på stuff för ratingsidan
+ 	$('.menubtn a').click(function() {
+
+            var targetPage = $(this).attr('href');
+			targetPage += " .content-wrapper";
+
+        	$('.content').load(targetPage, function() {
+        			$("#myTab a").click(function (e) {
+			            e.preventDefault();
+			            $(this).tab("show");
+			        });
+            });
+     
+    return false;
+    });
 
 });

@@ -1,5 +1,6 @@
 @layout('master')
 @section('content')
+
 <div class="offset1 span8 offset1">
 
 <h3>Om GreenCircle</h3>
