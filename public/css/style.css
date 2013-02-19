@@ -2,7 +2,7 @@
 .leftcol{float: left;}
 .rightcol{float: right;}
 #greencircle{float: right; font-size: 77px;}
-.header{padding-right: 50px; margin-top: 50px;}
+.header{padding-right: 50px; margin-top: 0px;}
 .container{background-color:}
 .content{background-color: #fff; border:1px solid black; border-radius: 3px; overflow: hidden; margin-bottom: 100px; padding-bottom: 30px;}
 .price{float: right; margin-right: 5px;}
@@ -16,8 +16,21 @@ form{margin:0px!important;}
 .navmenu-hidden{display: none;}
 .hidden-menubtn, .only-mobile{display: none!important;}
 .bigbtn{width: 33.3%; text-align: center; border-radius: 3px; background-color: #eeeeee;}
-.bigbtn a:hover{background-color: #dfdfdf!important; z-index: 10;}
-	
+.bigbtncatering{width: 50%; text-align: center; border-radius: 3px; background-color: #eeeeee;}
+.bigbtn a:hover, .bigbtncatering:hover{background-color: #dfdfdf!important; z-index: 10;}
+.imgdiv{max-width: 170px; margin-left: 10px;margin-top: 30px;}
+.center{text-align: center;}
+.rating{position: relative;}
+.rating d {position: absolute; left: 55px;top: 7px; font-weight: bold; font-size: 1.2em; z-index: 10;}
+.myvote{margin-left: 35px!important;}
+.qaz{width:100px;float: left;}
+.wsx{width: 240px; float: left;}
+.votevalue{position: relative;top:5px;}
+.ratestats{position: relative;top:5px; margin-left: 102px;}
+
+.ratingstar{position: relative;bottom: 20px; z-index: 0;}
+.commentfield{width:100%; min-width: 100%; min-height: 100px; max-width:100%;max-height: 100px;}
+.send{width: 100px!important; height: 30px; border-radius: 5px;}
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;

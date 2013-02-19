@@ -6,12 +6,14 @@ class Home_Controller extends Base_Controller {
 
     public function get_index()
     {
-        return View::make('home.index')->with('weekly', Weekly::all());
+        $weeklymenu = weeklymenu::order_by('created_at', 'desc')->take(2)->get();
+        return View::make('home.index')->with('weeklymenu', $weeklymenu);
     }    
 
     public function get_menu()
     {
-        return View::make('home.menu')->with('weekly', Weekly::all());
+        $weeklymenu = weeklymenu::order_by('created_at', 'desc')->take(4)->get();
+        return View::make('home.menu')->with('weeklymenu', $weeklymenu);
     }    
 
     public function get_about()
@@ -29,37 +31,39 @@ class Home_Controller extends Base_Controller {
     }
     public function post_new()
     {
-        $day = Input::get('day');
-        $name = Input::get('name');
-        $description = Input::get('description');
-        $price = Input::get('price');
+        $week = Input::get('week');
+        $name1 = Input::get('name1');
+        $description1 = Input::get('description1');
+        $name2 = Input::get('name2');
+        $description2 = Input::get('description2');
 
-        Weekly::create(array(
-            'day' => $day, 'description' => $description, 'name' => $name, 'price' => $price
+
+        weeklymenu::create(array(
+            'week' => $week, 'description1' => $description1, 'name1' => $name1, 'description2' => $description2, 'name2' => $name2
         ));
         return Redirect::to('home/menu');
     }
     public function delete_destroy()
     {
          $id = Input::get('id');
-         Weekly::find($id)->delete();
+         weeklymenu::find($id)->delete();
          return Redirect::to('home/menu');
     }
 
     public function get_edit($id)
     {
-        return View::make('home.edit')->with('weekly' ,Weekly::find($id));
+        return View::make('home.edit')->with('weekly' ,weeklymenu::find($id));
     }
 
     public function put_update()
     {
         $id = Input::get('id');
-        Weekly::update($id, array(
-                'name' => Input::get('name'),
-                'day' => Input::get('day'),
-                'price' => Input::get('price'),
-                'description' => Input::get('description')
-
+        weeklymenu::update($id, array(
+                'week' => Input::get('week'),
+                'name1' => Input::get('name1'),
+                'description1' => Input::get('description1'),
+                'name2' => Input::get('name2'),
+                'description2' => Input::get('description2')
         ));
         return Redirect::to('home/menu');
     }
@@ -68,7 +72,7 @@ class Home_Controller extends Base_Controller {
     {
         $searchword = Input::get('searchword');
 
-        $result = Weekly::where('name', 'LIKE', '%'.$searchword.'%')
+        $result = weeklymenu::where('name', 'LIKE', '%'.$searchword.'%')
         ->or_where('description', 'LIKE', '%'.$searchword.'%')
         ->select('*')->get();
 
@@ -76,5 +80,19 @@ class Home_Controller extends Base_Controller {
             ->with('results', $result)
             ->with('word', $searchword);
 
+    }
+    public function get_rate(){
+        $user_data = Session::get('oneauth');
+        
+
+        // $user = user::with('comments')->where('users.uid', '=', 'comments.user_uid');
+
+        $comments = comment::all(); 
+        dd($user);
+          
+        return View::make('home.rate')
+        ->with('user_data', $user_data)
+        ->with('comments', $comments);
+        
     }
 }

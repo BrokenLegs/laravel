@@ -1,8 +1,16 @@
 @layout('master')
 @section('content')
-	
-		<div class="offset1 span8 offset1">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam turpis, egestas vel adipiscing ac, congue nec nisi. Nulla quam nisi, laoreet eu egestas ac, elementum id lorem. Aenean bibendum pulvinar lacinia. Curabitur vel felis tellus, eget gravida urna. Nulla facilisi. Pellentesque sapien nisl, posuere nec malesuada quis, mattis a ligula. Nullam vitae tellus et mi vestibulum viverra. Vivamus fringilla venenatis turpis. Quisque varius diam ut mauris congue gravida. Phasellus viverra egestas nibh ac venenatis.</p>
-			<p>Integer nulla neque, aliquet et semper at, congue sed velit. In ut iaculis sem. Mauris nec lacinia felis. Vivamus consectetur ipsum vitae sapien auctor vel aliquet sem auctor. Pellentesque et urna ac est pellentesque mollis quis eu magna. Ut vitae quam quis augue pulvinar commodo eget quis nunc. Quisque porta scelerisque tellus, ut fermentum quam tempor sed. Morbi non urna odio.</p>
-		</div>
+
+<div class="offset1 span8 offset1">
+
+<h3>Om GreenCircle</h3>
+	<p>Green Circle är ett familjeföretag som startats av två syskon sedan augusti 2012.<br> 
+	Vår affärsidé är att erbjuda god mat med hög kvalité till bra priser. Varje kund ska känna att han/hon får bra och mycket mat
+för pengarna. Det ska helt enkelt vara prisvärt.<br>
+Vår ambition är att tillföra något nytt till den redan
+mångkulturella maten som finns idag. Vi har därför valt att tillföra den vietnamesiska matkulturen
+samt ta den svenska husmanskosten till en helt ny nivå med orientaliska influenser i tillagningen med
+allt som oftast egna recept.</p>
+</div>
+
 @endsection

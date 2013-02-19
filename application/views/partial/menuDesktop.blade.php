@@ -6,8 +6,8 @@
     
     <div class="tab-content">
     	<div class=" tab-pane active" id="veckans">
-            <div class="offset1 span4">
-        		<h3>Veckans meny</h3>
+            <div class="">
+        		<h3 class="center">Veckans meny</h3>
     		<br> 		
     			 @include('partial.weeklymenu')
     		</div>

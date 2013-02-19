@@ -1,21 +1,6 @@
 <!doctype html>
 <head>
-	{{HTML::Style('/css/style.css')}}
-	{{HTML::Style('/css/slider.css')}}
-	{{HTML::Style('/css/nivo-slider.css')}}
-	{{HTML::Style('/css/default.css')}}
-	{{HTML::Style('/css/bootstrap.css')}}
-	{{HTML::Style('/css/bootstrap.min.css')}}
-	{{HTML::Style('/css/bootstrap-responsive.css')}}
-	{{HTML::Style('/css/bootstrap-responsive.min.css')}}
-	{{HTML::script('/js/jquery-1.9.0.min.js')}}	
-	{{HTML::script('/js/jquery.nivo.slider.js')}}
-	{{HTML::script('/js/bootstrap.js')}}
-	{{HTML::script('/js/bootstrap.min.js')}}
-	{{HTML::script('/js/script.js')}}
-	{{HTML::script('js/jquery.watermarkinput.js') }}
-	{{HTML::Style('/css/font-awesome.min.css')}}
-
+	@include('includes.assets')
 	<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -24,6 +9,7 @@
 </head>
 <body>
 	<div class="container">	
+
 		<div class="offset1 span10 header">
 			{{HTML::image('/img/Skylt_Green_Circle.png', 'header-background', array('id' => 'headerBackground'));}}		
 				<div class="btn span6 hidden-menubtn only-mobile main-menubtn" >
@@ -48,13 +34,12 @@
 		<div class="slider-wrapper theme-default offset1 span10">
             <div id="slider" class="nivoSlider">
             	<?php
-					$dir = $_SERVER['DOCUMENT_ROOT'].'/img/sliderimg';
-					$files = scandir($dir, 1);
-					$files = array_diff(scandir($dir), array('..', '.', 'Thumbs.db'));
+					$files = scandirectory('/img/sliderimg/');
 				?>
 				@foreach($files as $file)
 					<img src="/img/sliderimg/{{$file}}" data-thumb="" alt="{{$file}}" />	
 				@endforeach
+				
 			</div>
         </div>
 		<div class="content offset1 span10">
