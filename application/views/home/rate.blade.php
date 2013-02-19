@@ -49,7 +49,23 @@
 			<h4>Detta har andra skrivit</h4>
 			<hr>
 			<ul class="commentlist">
-				
+				<!--<li>
+					@foreach($comments as $comment)
+						<div class="commentContent">
+							<div class="fbimgContainer span1">
+								{{HTML::image($comment->image , '', array('class="fbimg"'));}}
+							</div>
+							<div class="span6">
+								{{HTML::link($comment->facebooklink, $comment->name, array('target="_blank" class="fblink"'));}}
+							</div>
+							<div class="span6">
+
+								<p>{{$comment->body}}</p>
+							</div>
+						</div>
+						<div class="span7"><hr></div>
+					@endforeach
+				</li>-->
 			</ul>
 			
 		</div>
