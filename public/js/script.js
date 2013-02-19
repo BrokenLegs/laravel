@@ -40,6 +40,27 @@
 			            e.preventDefault();
 			            $(this).tab("show");
 			        });
+
+                    $('.myvoteradio').mouseover(function(){
+            $value = $(this).attr('value');
+            $('.votevalue').html($value+'/10'); 
+                
+            $('.wsx').mouseout(function(){
+                if($('.myvoteradio').hasClass('selected')){
+                    $selectedValue = $('.selected').attr('value');
+                        $('.votevalue').html($selectedValue+'/10');
+                }else{
+                    $value = $(this).attr('value');
+                    $('.votevalue').html('-/10');
+                }
+                });
+            });
+            $('.myvoteradio').click(function(){
+                
+                $(this).addClass('selected').siblings().removeClass('selected');;
+                $('.myvoteradio').css("");  
+            });
+     
             });
     return false;
     });
@@ -47,7 +68,7 @@
 
  	        $(function(){
                 $('.commentlist').scrollPagination({
-                    'contentPage': 'comments.html', // the url you are fetching the results
+                    'contentPage': '/comments.html', // the url you are fetching the results
                     'contentData': {}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
                     'scrollTarget': $(window), // who gonna scroll? in this example, the full window
                     'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
