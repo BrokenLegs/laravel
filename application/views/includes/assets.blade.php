@@ -17,5 +17,10 @@
 {{HTML::script('js/jquery.watermarkinput.js') }}
 {{HTML::script('/js/script.js')}}
 
+{{HTML::script('js/star-rating/jquery.MetaData.js')}}
+{{HTML::script('js/star-rating/jquery.rating.js')}}
+{{HTML::script('js/star-rating/jquery.form.js')}}
+{{HTML::Style('js/star-rating/jquery.rating.css')}}
+
 @include('includes.helpers')
 
