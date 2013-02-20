@@ -49,7 +49,7 @@
 			<h4>Detta har andra skrivit</h4>
 			<hr>
 			<ul class="commentlist">
-				<!--<li>
+				<li>
 					@foreach($comments as $comment)
 						<div class="commentContent">
 							<div class="fbimgContainer span1">
@@ -65,7 +65,7 @@
 						</div>
 						<div class="span7"><hr></div>
 					@endforeach
-				</li>-->
+				</li>
 			</ul>
 			
 		</div>
