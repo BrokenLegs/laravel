@@ -14,6 +14,10 @@
 {{HTML::script('js/jquery.watermarkinput.js') }}
 {{HTML::Style('/css/font-awesome.min.css')}}
 {{HTML::script('js/scrollpagination.js')}}
+{{HTML::script('js/star-rating/jquery.MetaData.js')}}
+{{HTML::script('js/star-rating/jquery.rating.js')}}
+{{HTML::script('js/star-rating/jquery.form.js')}}
+{{HTML::Style('js/star-rating/jquery.rating.css')}}
 
 @include('includes.helpers')
 

@@ -23,18 +23,19 @@
 				<span class="qaz">Ditt betyg</span>
 				<div class="wsx">
 					{{Form::open()}}
-						{{Form::radio('myvote', 1,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 2,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 3,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 4,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 5,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 6,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 7,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 8,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 9,'', array('class="myvoteradio"'));}}
-						{{Form::radio('myvote', 10,'', array('class="myvoteradio"'));}}
+						{{Form::radio('myvote', 1,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 5,'checked', array('class'=>'star'));}}
+						{{Form::radio('myvote', 6,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 7,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 8,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 9,'', array('class'=>'star'));}}
+						{{Form::radio('myvote', 10,'', array('class'=>'star'));}}
 						<span class="votevalue"> -/10</span>
 					{{Form::close()}}
+
 				</div><br>
 				<span class="ratestats">Snitt {{$score}}/10 av {{$amount_of_votes}}st röster</span>
 			</div>
