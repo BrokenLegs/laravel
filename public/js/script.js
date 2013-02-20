@@ -24,12 +24,8 @@
 				}
 			});
 		});
-		$('.myvoteradio').click(function(){
-			
-			$(this).addClass('selected').siblings().removeClass('selected');;
-			$('.myvoteradio').css("");	
-		});
-	// slut på stuff för ratingsidan
+	
+
  	$('.menubtn a').click(function() {
 
             var targetPage = $(this).attr('href');

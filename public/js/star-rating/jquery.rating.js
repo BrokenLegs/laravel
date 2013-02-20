@@ -151,13 +151,27 @@
 					.mouseover(function(){
 						$(this).rating('fill');
 						$(this).rating('focus');
+							$value = $(this).find('a').attr('title');
+							 $('.votevalue').html($value+'/10');
 					})
 					.mouseout(function(){
 						$(this).rating('draw');
 						$(this).rating('blur');
+
+						 if($('.wsx').find('a').hasClass('selected')){
+						 	$selectedValue = $('.selected').attr('title');
+						 	$('.votevalue').html($selectedValue+'/10');
+						 }else{
+						 	$('.votevalue').html('-/10');
+						 }
+
 					})
 					.click(function(){
 						$(this).rating('select');
+
+						$('a.selected').removeClass('selected');
+						$(this).find('a').addClass('selected');
+
 					})
 				;
 			//}; //save a byte!

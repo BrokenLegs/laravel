@@ -27,13 +27,13 @@
 						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 5,'checked', array('class'=>'star'));}}
+						{{Form::radio('myvote', 5,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 6,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 7,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 8,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 9,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 10,'', array('class'=>'star'));}}
-						<!--<span class="votevalue"> -/10</span>-->
+						{{Form::radio('myvote', 10,'checked', array('class'=>'star'));}}
+						<span class="votevalue"> -/10</span>
 					{{Form::close()}}
 
 					<script type="text/javascript">
@@ -54,19 +54,28 @@
 			<h4>Detta har andra skrivit</h4>
 			<hr>
 
-			<ul id="commentlist" >
+			<ul id="commentlist" class="commentlist" >
 				@foreach($comments as $comment)
 					<li>
 
 						<div class="commentContent">
 							<div class="fbimgContainer span1">
-								{{HTML::image($comment->image , '', array('class="fbimg"'));}}
+								{{HTML::image($comment->image , '', array('class'=>'fbimg'));}}
 							</div>
 							<div class="span6">
 								{{HTML::link($comment->facebooklink, $comment->name, array('target="_blank" class="fblink"'));}}
+								(
+									<span class="commentmeta">
+									<?php 
+										$format = 'Y-m-d H:i:s';
+										$date = DateTime::createFromFormat($format, $comment->created_at);
+									?>
+									{{$date->format('M d ,Y')}}
+									{{$date->format(' H:i')}}
+								</span>
+								)
 							</div>
 							<div class="span6">
-
 								<p>{{$comment->body}}</p>
 							</div>
 						</div>
@@ -78,5 +87,9 @@
 			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
 		</div>
 	</div>
+	<script>
+
 	
+	</script>
 @endsection
+					
