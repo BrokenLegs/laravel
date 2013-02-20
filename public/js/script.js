@@ -9,19 +9,6 @@
 		});
 	});
 
-
- 	$('.menubtn').click(function() {
-
-            var targetPage = $(this).attr('href');
-			targetPage += " .content-wrapper";
-
-        	$('.content').load(targetPage, function() {
-        			$("#myTab a").click(function (e) {
-			            e.preventDefault();
-			            $(this).tab("show");
-			        });
-            
-
             //saker för rating sidan. 
                     $('.myvoteradio').mouseover(function(){
             $value = $(this).attr('value');
@@ -44,6 +31,16 @@
             });
             // slut på stuff för ratingsidan
 
+ 	$('.menuclick').click(function() {
+
+            var targetPage = $(this).attr('href');
+			targetPage += " .content-wrapper";
+
+        	$('.content').load(targetPage, function() {
+        			$("#myTab a").click(function (e) {
+			            e.preventDefault();
+			            $(this).tab("show");
+			        });
 
             });
     return false;
