@@ -48,9 +48,9 @@
 			<hr>
 			<h4>Detta har andra skrivit</h4>
 			<hr>
-			<ul class="commentlist">
-				<!--<li>
-					@foreach($comments as $comment)
+			<ul id="commentlist" >
+				@foreach($comments as $comment)
+					<li>
 						<div class="commentContent">
 							<div class="fbimgContainer span1">
 								{{HTML::image($comment->image , '', array('class="fbimg"'));}}
@@ -64,10 +64,10 @@
 							</div>
 						</div>
 						<div class="span7"><hr></div>
-					@endforeach
-				</li>-->
+					</li>
+				@endforeach
 			</ul>
-			
+			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
 		</div>
 	</div>
 	

@@ -92,7 +92,8 @@ class Home_Controller extends Base_Controller {
         // $orders = DB::->paginate(2);
 
         return View::make('home.rate')
-        ->with('user_data', $user_data); 
+        ->with('user_data', $user_data)
+        ->with('comments', $user); 
         
     }
 
@@ -121,7 +122,8 @@ class Home_Controller extends Base_Controller {
                         <div class="span7"><hr></div></li>';
             }
 
-            return $commentlist;
+            return View::make('home.test')
+            ->with('comments',$commentlist);
 
     }
 }
