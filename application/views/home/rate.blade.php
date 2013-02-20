@@ -40,32 +40,34 @@
 			</div>
 		</div>
 		<div class="offset1 span7">
-			<h3>Kommentera</h3>
-			
+			<h3>Kommentera</h3>	
 			{{Form::textarea('name', '', array('class="commentfield"'));}}
 			{{Form::submit('Skicka', array('class="btn-primary send"'))}}
-
 		</div>
-		<div class="offset1 span7 commentsContainer">
-			Detta har andra skrivit
-			@foreach($comments as $comment)
-				<div class="comment">
-					<div class="">
-						{{HTML::image($comment->image , '', array('class="fbimg"'));}}
-						<div>
-						{{HTML::link($comment->facebooklink, $comment->name, array('target="_blank" class="fblink"'));}}
-						</div>
-						<div class="">
-							{{$comment->body}}
-						</div>
+		<div class="offset1 span8 commentsContainer">
+			<hr>
+			<h4>Detta har andra skrivit</h4>
+			<hr>
+			<ul class="commentlist">
+				<li>
+					@foreach($comments as $comment)
+						<div class="commentContent">
+							<div class="fbimgContainer span1">
+								{{HTML::image($comment->image , '', array('class="fbimg"'));}}
+							</div>
+							<div class="span6">
+								{{HTML::link($comment->facebooklink, $comment->name, array('target="_blank" class="fblink"'));}}
+							</div>
+							<div class="span6">
 
-						
-					</div>
-					<div class="">
-						
-					</div>
-				</div>
-			@endforeach
+								<p>{{$comment->body}}</p>
+							</div>
+						</div>
+						<div class="span7"><hr></div>
+					@endforeach
+				</li>
+			</ul>
+			
 		</div>
 	</div>
 	

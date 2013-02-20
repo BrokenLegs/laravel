@@ -13,6 +13,7 @@
 {{HTML::script('/js/script.js')}}
 {{HTML::script('js/jquery.watermarkinput.js') }}
 {{HTML::Style('/css/font-awesome.min.css')}}
+{{HTML::script('js/scrollpagination.js')}}
 
 @include('includes.helpers')
 

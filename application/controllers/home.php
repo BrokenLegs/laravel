@@ -86,11 +86,43 @@ class Home_Controller extends Base_Controller {
      
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
-            ->get();
-          
+            ->take(2)->get();
+            //dd($user);
+        
+        // $orders = DB::->paginate(2);
+
         return View::make('home.rate')
         ->with('user_data', $user_data)
         ->with('comments', $user);
         
+    }
+
+  public function get_test()
+    {
+        $user = DB::table('users')
+            ->join('comments', 'users.uid', '=', 'comments.user_uid')
+            ->get();
+
+            $commentlist = '';
+
+           foreach($user as $comment)
+            {
+                $commentlist .= '<li><div class="commentContent">
+                            <div class="fbimgContainer span1">
+                                <img src="'.$comment->image.'" class="fbimg">
+                            </div>
+                            <div class="span6">
+                                <a href="'.$comment->facebooklink.'" class="fblink" target="_blank">'.$comment->name.'</a>
+                            </div>
+                            <div class="span6">
+
+                                <p>'.$comment->body.'</p>
+                            </div>
+                        </div>
+                        <div class="span7"><hr></div></li>';
+            }
+
+            return $commentlist;
+
     }
 }
