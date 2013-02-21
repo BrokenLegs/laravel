@@ -8,29 +8,7 @@
 		$('.navmenu-hidden').slideToggle('slow', function() {
 		});
 	});
-
-            //saker för rating sidan. 
-            $('.star-rating').mouseover(function(){
-                alert('sad');
-            $value = $(this).attr('title');
-            $('.votevalue').html($value+'/10'); 
-                
-            $('.wsx').mouseout(function(){
-                if($('.star a').hasClass('selected')){
-                    $selectedValue = $('.selected').attr('title');
-                        $('.votevalue').html($selectedValue+'/10');
-                }else{
-                    $value = $(this).attr('title');
-                    $('.votevalue').html('-/10');
-                }
-                });
-            });
-            $('.star').click(function(){
-                
-                $(this).addClass('selected').siblings().removeClass('selected');;
-                $('.star').css("");  
-            });
-            // slut på stuff för ratingsidan
+	      
 
  	$('.menuclick').click(function() {
 
@@ -49,22 +27,21 @@
 
 
  	        $(function(){
-                $('.commentlist').scrollPagination({
-                    'contentPage': 'comments.html', // the url you are fetching the results
+                $('#commentlist').scrollPagination({
+                    'contentPage': 'http://laravel.dev/home/test', // the url you are fetching the results
                     'contentData': {}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
                     'scrollTarget': $(window), // who gonna scroll? in this example, the full window
                     'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
                     'beforeLoad': function(){ // before load function, you can display a preloader div
                         $('#loading').fadeIn();
+
                     },
                     'afterLoad': function(elementsLoaded){ // after loading content, you can use this function to animate your new elements
+                    	alert('afterload!!!!');
                          $('#loading').fadeOut();
                          var i = 0;
                          $(elementsLoaded).fadeInWithDelay();
-                         if ($('.commentlist').children().size() > 100){ // if more than 100 results already loaded, then stop pagination (only for testing)
-                            $('#nomoreresults').fadeIn();
-                            $('.commentlist').stopScrollPagination();
-                         }
+                
                     }
                 });
 
@@ -78,15 +55,10 @@
                 };
                        
             });
-        
+       
 
 
-
-
-
-
-
-
+});
 
 
 });
