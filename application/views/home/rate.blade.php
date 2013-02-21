@@ -6,6 +6,13 @@
 	
 ?>
 
+<!-- Behövs för Rating, sparar gammla värdet i en variabel -->
+<script type="text/javascript">
+	var oldVal = "<?php echo $score ?>";
+	var oldAmount = "<?php echo $amount_of_votes ?>";
+</script>
+<!-- EOF -->
+
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
@@ -17,13 +24,13 @@
     	</div>
 		<div class="offset1 span7 rating">
 			<div class="span1">
-				<d>{{$score}}</d>
+				<d class="ratingStarVal">{{$score}}</d>
 				{{HTML::image('img/star.jpg', '', array('class = "ratingstar"'));}}
 			</div> 
 			<div class="myvote span4">
 				<span class="qaz">Ditt betyg</span>
 				<div class="wsx">
-					{{Form::open()}}
+					{{Form::open('','',array('id'=>'ratingform'))}}
 						{{Form::radio('myvote', 1,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
@@ -36,6 +43,11 @@
 						{{Form::radio('myvote', 10,'checked', array('class'=>'star'));}}
 						<span class="votevalue"> -/10</span>
 					{{Form::close()}}
+
+					<script type="text/javascript">
+
+					</script>
+
 
 					<?php 
 						if (Session::has('errormsg'))

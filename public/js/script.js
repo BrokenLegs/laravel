@@ -9,7 +9,18 @@
 		});
 	});
 
-	//saker för rating sidan. 
+	//saker för rating sidan.
+        $('.star').rating({
+            callback: function(value, link){
+                var newAmount = parseInt(oldAmount)+1;
+                var oldTotal = parseFloat(oldVal)*parseInt(oldAmount);
+                var newVal = (parseInt(oldTotal) + parseInt(value))/parseInt(newAmount);
+                
+                alert(oldTotal + " " + newVal.toFixed(1));
+            }
+        });
+
+    ///////////////Original
 		$('.myvoteradio').mouseover(function(){
 			$value = $(this).attr('value');
 			$('.votevalue').html($value+'/10');	
@@ -37,24 +48,24 @@
 			            $(this).tab("show");
 			        });
 
-    $('.myvoteradio').mouseover(function(){
-            $value = $(this).attr('value');
-            $('.votevalue').html($value+'/10'); 
-                
-            $('.wsx').mouseout(function(){
-                if($('.myvoteradio').hasClass('selected')){
-                    $selectedValue = $('.selected').attr('value');
-                        $('.votevalue').html($selectedValue+'/10');
-                }else{
+            $('.myvoteradio').mouseover(function(){
                     $value = $(this).attr('value');
-                    $('.votevalue').html('-/10');
-                }
-                });
+                    $('.votevalue').html($value+'/10'); 
+                        
+                    $('.wsx').mouseout(function(){
+                        if($('.myvoteradio').hasClass('selected')){
+                            $selectedValue = $('.selected').attr('value');
+                                $('.votevalue').html($selectedValue+'/10');
+                        }else{
+                            $value = $(this).attr('value');
+                            $('.votevalue').html('-/10');
+                        }
+                        });
             });
             $('.myvoteradio').click(function(){
                 
                 $(this).addClass('selected').siblings().removeClass('selected');;
-                $('.myvoteradio').css("");  
+                $('.myvoteradio').css(""); 
             });
      
             });
