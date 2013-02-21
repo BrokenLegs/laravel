@@ -33,7 +33,7 @@
 						{{Form::radio('myvote', 8,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 9,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 10,'', array('class'=>'star'));}}
-						<!--<span class="votevalue"> -/10</span>-->
+						<span class="votevalue"> -/10</span>
 					{{Form::close()}}
 
 					<script type="text/javascript">

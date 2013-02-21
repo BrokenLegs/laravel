@@ -10,24 +10,25 @@
 	});
 
             //saker för rating sidan. 
-                    $('.myvoteradio').mouseover(function(){
-            $value = $(this).attr('value');
+            $('.star-rating').mouseover(function(){
+                alert('sad');
+            $value = $(this).attr('title');
             $('.votevalue').html($value+'/10'); 
                 
             $('.wsx').mouseout(function(){
-                if($('.myvoteradio').hasClass('selected')){
-                    $selectedValue = $('.selected').attr('value');
+                if($('.star a').hasClass('selected')){
+                    $selectedValue = $('.selected').attr('title');
                         $('.votevalue').html($selectedValue+'/10');
                 }else{
-                    $value = $(this).attr('value');
+                    $value = $(this).attr('title');
                     $('.votevalue').html('-/10');
                 }
                 });
             });
-            $('.myvoteradio').click(function(){
+            $('.star').click(function(){
                 
                 $(this).addClass('selected').siblings().removeClass('selected');;
-                $('.myvoteradio').css("");  
+                $('.star').css("");  
             });
             // slut på stuff för ratingsidan
 
