@@ -1,9 +1,20 @@
 @layout('master')
 @section('content')
+
 <?php 
-	$score=7.7;
-	$amount_of_votes = 122;
-	
+	$amount_of_votes = 0;
+	$tempValue=0;
+?>
+
+@foreach($ratings as $rating)
+	<?php
+		$amount_of_votes += 1;
+		$tempValue += $rating->value;
+	?>
+@endforeach
+<?php 
+	$value = number_format($tempValue/$amount_of_votes, 1);
+	$score=$value;	
 ?>
 
 <!-- Behövs för Rating, sparar gammla värdet i en variabel -->

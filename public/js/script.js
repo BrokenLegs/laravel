@@ -12,11 +12,24 @@
 	//saker för rating sidan.
         $('.star').rating({
             callback: function(value, link){
-                var newAmount = parseInt(oldAmount)+1;
-                var oldTotal = parseFloat(oldVal)*parseInt(oldAmount);
-                var newVal = (parseInt(oldTotal) + parseInt(value))/parseInt(newAmount);
-                
-                alert(oldTotal + " " + newVal.toFixed(1));
+                // alert('ajax starting');
+                // $.ajax({
+                //     type: "POST",
+                //     url: "laravel.dev/home/rate.php",
+                //     async: false,
+                //     data: 
+                //         {value: value},
+                //         success: function(success){
+                //             alert('Success ' + success);
+                //         },
+                //         error: function(error){
+                //             alert('error ' + error.responseText);
+                //         }
+                // }).done(function( msg ){
+                //     alert('ajax done' + msg);
+                // });
+
+                alert(value);
             }
         });
 
