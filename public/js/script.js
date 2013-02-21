@@ -10,8 +10,8 @@
 	});
 	      
 
- 	$('.menuclick').click(function() {
-        alert('hej');
+ 	$('.menuclick a').click(function() {
+        
             var targetPage = $(this).attr('href');
 			targetPage += " .content-wrapper";
 
@@ -60,5 +60,3 @@
 
 });
 
-
-});
