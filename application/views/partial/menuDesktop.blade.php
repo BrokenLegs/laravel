@@ -98,12 +98,3 @@
         <div class="offset1 tab-pane active" id="lunch">
         </div>
     </div>
-
-
-    <script> 
-        $("#myTab a").click(function (e) {
-            alert('hej');
-            e.preventDefault();
-            $(this).tab("show");
-        });
-    </script>

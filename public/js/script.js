@@ -11,7 +11,7 @@
 	      
 
  	$('.menuclick').click(function() {
-
+        alert('hej');
             var targetPage = $(this).attr('href');
 			targetPage += " .content-wrapper";
 
