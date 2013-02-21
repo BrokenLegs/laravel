@@ -35,13 +35,14 @@ form{margin:0px!important;}
 .fbimg{height: 50px; width: 50px; padding-top: 0px; margin: 0 0px 0 0;}
 .commentContent{margin:0px 0 15px 0;}
 .fblink{position: relative;bottom: 0px;}
-.fbimgContainer{margin-right: -25px;}
+.fbimgContainer{margin-right: -25px; clear: left;}
 .commentlist{list-style-type: none; margin:0px;}
 #loading{display: none;}
 .commentmeta{font-size: 0.7em;}
 .error{position: fixed; left: 23%; top:30%; z-index: 13; box-shadow: 10px 10px 5px #888888; font-size: 2em;
 	overflow: visible; width: 800px;
 }
+
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;

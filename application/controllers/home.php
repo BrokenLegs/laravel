@@ -116,7 +116,6 @@ class Home_Controller extends Base_Controller {
                                 <a href="'.$comment->facebooklink.'" class="fblink" target="_blank">'.$comment->name.'</a>
                             </div>
                             <div class="span6">
-
                                 <p>'.$comment->body.'</p>
                             </div>
                         </div>
@@ -128,26 +127,26 @@ class Home_Controller extends Base_Controller {
 
     }
 
+    
+
     public function post_comment(){
-        $user_data = Session::get('oneauth');
-        $body = Input::get('body');
-         // dd($user_data['info']['uid']);
-        // dd($body);
-        if(!is_null($user_data)){
+        if($this->is_logged_in($user_data)){
+            $body = Input::get('body');
             Comment::create(array(
                 'user_uid' => $user_data['info']['uid'], 'body' => $body
             ));
             return Redirect::to('home/rate');    
         }else{
-            $errormsg = '<br>Du måste vara inloggad för att kunna kommentera<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
+            $errormsg = '<script>$(\'#myModal\').modal(\'show\')</script>';
+
             return Redirect::to('home/rate')->with('errormsg', $errormsg);
         }
 
 
     }
 
-    public function is_logged_in($user_data){
-        // $user_data = Session::get('oneauth');
+    private function is_logged_in(&$user_data){
+        $user_data = Session::get('oneauth');
         if(!is_null($user_data)){
             return true;
         }else{

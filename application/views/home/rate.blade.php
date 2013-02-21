@@ -3,9 +3,8 @@
 <?php 
 	$score=7.7;
 	$amount_of_votes = 122;
-	
 ?>
-
+	@include('partial.fbmodal')
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
@@ -41,9 +40,7 @@
 						if (Session::has('errormsg'))
 						{
 						    $errormsg = Session::get('errormsg');
-							echo '    <div class="alert alert-block error">
-		    							<button type="button" class="close" data-dismiss="alert">&times;</button>
-		    							'.$errormsg.'</div>';
+							echo $errormsg;
 						} 
 					?>
 
@@ -97,9 +94,6 @@
 			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
 		</div>
 	</div>
-	<script>
 
-	
-	</script>
 @endsection
 					
