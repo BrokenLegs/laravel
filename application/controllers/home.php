@@ -86,8 +86,9 @@ class Home_Controller extends Base_Controller {
      
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
+            ->order_by('created_at', 'desc')
             ->take(2)->get();
-            //dd($user);
+            // dd($user_data);
         
         // $orders = DB::->paginate(2);
 
@@ -126,4 +127,21 @@ class Home_Controller extends Base_Controller {
             ->with('comments',$commentlist);
 
     }
+
+    public function post_comment(){
+        $user_data = Session::get('oneauth');
+        $body = Input::get('body');
+         // dd($user_data['info']['uid']);
+        // dd($body);
+         Comment::create(array(
+            'user_uid' => $user_data['info']['uid'], 'body' => $body
+        ));
+
+
+        return Redirect::to('home/rate');    
+    }
+
+
+
+
 }

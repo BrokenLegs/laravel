@@ -46,8 +46,10 @@
 		</div>
 		<div class="offset1 span7">
 			<h3>Kommentera</h3>	
-			{{Form::textarea('name', '', array('class="commentfield"'));}}
-			{{Form::submit('Skicka', array('class="btn-primary send"'))}}
+			{{Form::open('home/comment', 'post')}}
+				{{Form::textarea('body', '', array('class="commentfield"'));}}
+				{{Form::submit('Skicka', array('class="btn-primary send"'))}}
+			{{Form::close()}}
 		</div>
 		<div class="offset1 span8 commentsContainer">
 			<hr>
