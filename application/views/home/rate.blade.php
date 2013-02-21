@@ -5,6 +5,7 @@
 	$amount_of_votes = 122;
 	
 ?>
+
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
@@ -36,9 +37,15 @@
 						<span class="votevalue"> -/10</span>
 					{{Form::close()}}
 
-					<script type="text/javascript">
-
-					</script>
+					<?php 
+						if (Session::has('errormsg'))
+						{
+						    $errormsg = Session::get('errormsg');
+							echo '    <div class="alert alert-block error">
+		    							<button type="button" class="close" data-dismiss="alert">&times;</button>
+		    							'.$errormsg.'</div>';
+						} 
+					?>
 
 				</div><br>
 				<span class="ratestats">Snitt {{$score}}/10 av {{$amount_of_votes}}st röster</span>
@@ -86,6 +93,7 @@
 					</li>
 				@endforeach
 			</ul>
+			
 			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
 		</div>
 	</div>

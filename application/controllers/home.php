@@ -133,14 +133,27 @@ class Home_Controller extends Base_Controller {
         $body = Input::get('body');
          // dd($user_data['info']['uid']);
         // dd($body);
-         Comment::create(array(
-            'user_uid' => $user_data['info']['uid'], 'body' => $body
-        ));
+        if(!is_null($user_data)){
+            Comment::create(array(
+                'user_uid' => $user_data['info']['uid'], 'body' => $body
+            ));
+            return Redirect::to('home/rate');    
+        }else{
+            $errormsg = '<br>Du måste vara inloggad för att kunna kommentera<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
+            return Redirect::to('home/rate')->with('errormsg', $errormsg);
+        }
 
 
-        return Redirect::to('home/rate');    
     }
 
+    public function is_logged_in($user_data){
+        // $user_data = Session::get('oneauth');
+        if(!is_null($user_data)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
 

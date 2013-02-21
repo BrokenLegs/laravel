@@ -39,6 +39,9 @@ form{margin:0px!important;}
 .commentlist{list-style-type: none; margin:0px;}
 #loading{display: none;}
 .commentmeta{font-size: 0.7em;}
+.error{position: fixed; left: 23%; top:30%; z-index: 13; box-shadow: 10px 10px 5px #888888; font-size: 2em;
+	overflow: visible; width: 800px;
+}
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;
