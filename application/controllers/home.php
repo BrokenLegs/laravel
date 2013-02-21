@@ -86,8 +86,9 @@ class Home_Controller extends Base_Controller {
      
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
+            ->order_by('created_at', 'desc')
             ->take(2)->get();
-            //dd($user);
+            // dd($user_data);
         
         // $orders = DB::->paginate(2);
 
@@ -122,7 +123,38 @@ class Home_Controller extends Base_Controller {
                         <div class="span7"><hr></div></li>';
             }
 
-            return $commentlist;
+            return View::make('home.test')
+            ->with('comments',$commentlist);
 
     }
+
+    public function post_comment(){
+        $user_data = Session::get('oneauth');
+        $body = Input::get('body');
+         // dd($user_data['info']['uid']);
+        // dd($body);
+        if(!is_null($user_data)){
+            Comment::create(array(
+                'user_uid' => $user_data['info']['uid'], 'body' => $body
+            ));
+            return Redirect::to('home/rate');    
+        }else{
+            $errormsg = '<br>Du måste vara inloggad för att kunna kommentera<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
+            return Redirect::to('home/rate')->with('errormsg', $errormsg);
+        }
+
+
+    }
+
+    public function is_logged_in($user_data){
+        // $user_data = Session::get('oneauth');
+        if(!is_null($user_data)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
 }

@@ -25,7 +25,7 @@ form{margin:0px!important;}
 .myvote{margin-left: 35px!important;}
 .qaz{width:100px;float: left;}
 .wsx{width: 240px; float: left;}
-.votevalue{position: relative;top:5px;}
+.votevalue{margin-left: 5px;}
 .ratestats{position: relative;top:5px; margin-left: 102px;}
 
 .ratingstar{position: relative;bottom: 20px; z-index: 0;}
@@ -37,7 +37,11 @@ form{margin:0px!important;}
 .fblink{position: relative;bottom: 0px;}
 .fbimgContainer{margin-right: -25px;}
 .commentlist{list-style-type: none; margin:0px;}
-
+#loading{display: none;}
+.commentmeta{font-size: 0.7em;}
+.error{position: fixed; left: 23%; top:30%; z-index: 13; box-shadow: 10px 10px 5px #888888; font-size: 2em;
+	overflow: visible; width: 800px;
+}
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;
