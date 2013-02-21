@@ -13,7 +13,7 @@
 {{HTML::script('/js/jquery.nivo.slider.js')}}
 {{HTML::script('/js/bootstrap.min.js')}}
 {{HTML::script('js/jquery.watermarkinput.js') }}
-{{HTML::script('/js/script.js')}}
+{{HTML::script('js/script.js')}}
 
 {{HTML::script('js/star-rating/jquery.MetaData.js')}}
 {{HTML::script('js/star-rating/jquery.rating.js')}}

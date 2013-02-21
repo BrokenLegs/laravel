@@ -44,6 +44,7 @@
 						} 
 					?>
 
+
 				</div><br>
 				<span class="ratestats">Snitt {{$score}}/10 av {{$amount_of_votes}}st röster</span>
 			</div>
@@ -93,7 +94,6 @@
 			
 			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
 		</div>
-	</div>
-
+	</div>	
 @endsection
 					

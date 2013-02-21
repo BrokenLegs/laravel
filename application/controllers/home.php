@@ -94,7 +94,7 @@ class Home_Controller extends Base_Controller {
 
         return View::make('home.rate')
         ->with('user_data', $user_data)
-        ->with('comments', $user); 
+        ->with('comments', $user);
         
     }
 

@@ -35,7 +35,7 @@ form{margin:0px!important;}
 .fbimg{height: 50px; width: 50px; padding-top: 0px; margin: 0 0px 0 0;}
 .commentContent{margin:0px 0 15px 0;}
 .fblink{position: relative;bottom: 0px;}
-.fbimgContainer{margin-right: -25px; clear: left;}
+.fbimgContainer{margin-right: -25px; clear:left;}
 .commentlist{list-style-type: none; margin:0px;}
 #loading{display: none;}
 .commentmeta{font-size: 0.7em;}
