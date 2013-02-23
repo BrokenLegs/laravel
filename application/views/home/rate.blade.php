@@ -62,7 +62,7 @@
 			<hr>
 
 			<ul id="commentlist" class="commentlist" >
-				@foreach($comments as $comment)
+				@foreach($comments->results as $comment)
 					<li>
 
 						<div class="commentContent">
@@ -91,8 +91,8 @@
 					</li>
 				@endforeach
 			</ul>
-			
-			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
+			<div class="scroll offset2 span6">Scrolla ner för fler kommentarer</div>
+			<div id="loading" class="loading offset2 span6">Slut på kommentarer</div>
 		</div>
 	</div>	
 @endsection

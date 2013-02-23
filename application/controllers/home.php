@@ -87,10 +87,7 @@ class Home_Controller extends Base_Controller {
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
             ->order_by('created_at', 'desc')
-            ->take(2)->get();
-            // dd($user_data);
-        
-        // $orders = DB::->paginate(2);
+            ->paginate(2);
 
         return View::make('home.rate')
         ->with('user_data', $user_data)
@@ -102,13 +99,15 @@ class Home_Controller extends Base_Controller {
     {
         $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
-            ->get();
+            ->order_by('created_at', 'desc')
+            ->paginate(1);
+
 
             $commentlist = '';
 
-           foreach($user as $comment)
+           foreach($user->results as $comment)
             {
-                $commentlist .= '<li><div class="commentContent">
+                $commentlist .= '<li class="listcomment '.$comment->id.'" id="'.$comment->id.'"> <div>
                             <div class="fbimgContainer span1">
                                 <img src="'.$comment->image.'" class="fbimg">
                             </div>
