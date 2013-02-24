@@ -22,7 +22,10 @@ class Home_Controller extends Base_Controller {
     }    
 
     public function get_catering(){
-        return View::make('home.catering');
+        $categories = category::all();
+        // dd($categories);
+        return View::make('home.catering')
+        ->with('categories', $categories);
     }
 
     public function get_new()
@@ -87,7 +90,8 @@ class Home_Controller extends Base_Controller {
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
             ->order_by('created_at', 'desc')
-            ->paginate(2);
+            ->take(2)
+            ->get();
 
         return View::make('home.rate')
         ->with('user_data', $user_data)
@@ -102,28 +106,8 @@ class Home_Controller extends Base_Controller {
             ->order_by('created_at', 'desc')
             ->paginate(1);
 
-
-            $commentlist = '';
-
-           foreach($user->results as $comment)
-            {
-                $commentlist .= '<li class="listcomment '.$comment->id.'" id="'.$comment->id.'"> <div>
-                            <div class="fbimgContainer span1">
-                                <img src="'.$comment->image.'" class="fbimg">
-                            </div>
-                            <div class="span6">
-                                <a href="'.$comment->facebooklink.'" class="fblink" target="_blank">'.$comment->name.'</a>
-                            </div>
-                            <div class="span6">
-                                <p>'.$comment->body.'</p>
-                            </div>
-                        </div>
-                        <div class="span7"><hr></div></li>';
-            }
-
             return View::make('home.test')
-            ->with('comments',$commentlist);
-
+            ->with('user',$user);
     }
 
     

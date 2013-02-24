@@ -1,31 +1,23 @@
  $(document).ready(function () {
-
  	$(".search").Watermark("Sök");
  	$(".commentfield").Watermark("Fått en bra upplevelse här av oss på GreenCircle? Dela gärna med dig.");
-
 
  	$('.hidden-menubtn').click(function() {
 		$('.navmenu-hidden').slideToggle('slow', function() {
 		});
-	});
-	      
+	});	      
 
- 	$('.menuclick a').click(function() {
-        
+ 	$('.menuclick a').click(function() { 
             var targetPage = $(this).attr('href');
 			targetPage += " .content-wrapper";
-
         	$('.content').load(targetPage, function() {
         			$("#myTab a").click(function (e) {
 			            e.preventDefault();
 			            $(this).tab("show");
 			        });
-
             });
     return false;
     });
-
-
 $page=3;
 $(window).scroll(function () {
     var ScrollTop = $(window).scrollTop();
@@ -39,22 +31,18 @@ $(window).scroll(function () {
                 if(html){
                     $id= $(html).attr('id');
                     if($('.listcomment').hasClass($id)){
-                        $('.scroll').fadeOut('slow');
-                        $('.loading').delay(200).fadeIn('slow');
+                        $('.scroll').fadeOut('slow', function(){
+                        $('.loading').fadeIn('slow');
+                        });
                         die();
                     }
                     $('#commentlist').append(html);
                     $('.listcomment').fadeIn('slow');
                     $page++;
-                }
-                
+                }  
             }
-
         });
-
     }
-
-
 });
     
 

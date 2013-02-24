@@ -26,7 +26,7 @@
 						{{Form::radio('myvote', 1,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
+				   		{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 5,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 6,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 7,'', array('class'=>'star'));}}
@@ -60,11 +60,9 @@
 			<hr>
 			<h4>Detta har andra skrivit</h4>
 			<hr>
-
 			<ul id="commentlist" class="commentlist" >
-				@foreach($comments->results as $comment)
+				@foreach($comments as $comment)
 					<li>
-
 						<div class="commentContent">
 							<div class="fbimgContainer span1">
 								{{HTML::image($comment->image , '', array('class'=>'fbimg'));}}
@@ -87,7 +85,6 @@
 							</div>
 						</div>
 						<div class="span7"><hr></div>
-
 					</li>
 				@endforeach
 			</ul>

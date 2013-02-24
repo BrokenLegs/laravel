@@ -40,7 +40,8 @@ form{margin:0px!important;}
 #loading{display: none;}
 .commentmeta{font-size: 0.7em;}
 .listcomment{display: none;}
-
+.cateringmenuimg{float: right;max-height: 80px;margin-right: 50px;}
+.categoryitems{clear: left; margin-top: 50px;}
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;
