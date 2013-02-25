@@ -18,16 +18,16 @@
             });
     return false;
     });
-$page=3;
+$page=2;
 $(window).scroll(function () {
     var ScrollTop = $(window).scrollTop();
-    var scrollposition = $(document).height() - $(window).height() - 100;
+    var scrollposition = $(document).height() - $(window).height() - 150;
     if((ScrollTop) > scrollposition){
 
         $.ajax({
             url: "http://laravel.dev/home/test?page=" + $page,
             success: function(html){
-                
+
                 if(html){
                     $id= $(html).attr('id');
                     if($('.listcomment').hasClass($id)){
