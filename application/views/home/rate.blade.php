@@ -4,6 +4,10 @@
 	$score=7.7;
 	$amount_of_votes = 122;
 ?>
+@if(!is_null($user_data))
+	@include('partial.logged_in_as')
+@endif
+
 	@include('partial.fbmodal')
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
@@ -17,7 +21,7 @@
 		<div class="offset1 span7 rating">
 			<div class="span1">
 				<d>{{$score}}</d>
-				{{HTML::image('img/star.jpg', '', array('class = "ratingstar"'));}}
+				{{HTML::image('img/star.jpg', '', array('class' => 'ratingstar"'));}}
 			</div> 
 			<div class="myvote span4">
 				<span class="qaz">Ditt betyg</span>

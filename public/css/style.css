@@ -42,6 +42,27 @@ form{margin:0px!important;}
 .listcomment{display: none;}
 .cateringmenuimg{float: right;max-height: 80px;margin-right: 50px;}
 .categoryitems{clear: left; margin-top: 50px;}
+.user{position: fixed; left:0px; top:0px; z-index:500; width:15%; 
+	padding-top: 10px;
+	padding-bottom: 15px;
+	border-radius: 5px; 
+	background-color: #f5f5f5;
+  	*background-color: #e6e6e6;
+  	background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+	background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+	background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	background-repeat: repeat-x;
+	border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-bottom-color: #a2a2a2;
+
+	-moz-box-shadow: 5px 5px 3px #888;
+	-webkit-box-shadow: 5px 5px 3px #888;
+	box-shadow: 5px 5px 3px #888;
+}
+
 body{
 	background-image: url("../img/background.png")!important;
 	background-repeat: repeat;

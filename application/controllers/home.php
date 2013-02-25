@@ -86,7 +86,6 @@ class Home_Controller extends Base_Controller {
     }
     public function get_rate(){
         $user_data = Session::get('oneauth');
-     
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
             ->order_by('created_at', 'desc')
@@ -137,6 +136,11 @@ class Home_Controller extends Base_Controller {
         }
     }
 
+    public function get_logout() 
+    {
+        Session::forget('oneauth');
+        return Redirect::to('home/rate');
+    }
 
 
 }
