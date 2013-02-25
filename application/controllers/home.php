@@ -12,7 +12,10 @@ class Home_Controller extends Base_Controller {
 
     public function get_menu()
     {
+        $menu = Dish::with('categories')->get();
+
         $weeklymenu = weeklymenu::order_by('created_at', 'desc')->take(4)->get();
+        
         return View::make('home.menu')->with('weeklymenu', $weeklymenu);
     }    
 
