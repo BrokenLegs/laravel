@@ -6,8 +6,10 @@ class Home_Controller extends Base_Controller {
 
     public function get_index()
     {
+
         $weeklymenu = weeklymenu::order_by('created_at', 'desc')->take(2)->get();
-        return View::make('home.index')->with('weeklymenu', $weeklymenu);
+        return View::make('home.index')->with('weeklymenu', $weeklymenu)
+        ->with('user_data', Session::get('oneauth'));
     }    
 
     public function get_menu()
@@ -20,39 +22,46 @@ class Home_Controller extends Base_Controller {
         {
             $admin = true;
             return View::make('home.menu')
+
                     ->with('weeklymenu', $weeklymenu)
-                    ->with('admin', $admin);
+                    ->with('admin', $admin)
+                    ->with('user_data', Session::get('oneauth'));
         }
         else
         {
              $admin = false;
             return View::make('home.menu')
                     ->with('weeklymenu', $weeklymenu)
-                    ->with('admin', $admin);
+                    ->with('admin', $admin)
+                    ->with('user_data', Session::get('oneauth'));
         }
     }    
 
     public function get_about()
     {
-        return View::make('home.about');
+        return View::make('home.about')
+        ->with('user_data', Session::get('oneauth'));
     }    
 
     public function get_catering(){
         $categories = category::all();
         // dd($categories);
         return View::make('home.catering')
-        ->with('categories', $categories);
+        ->with('categories', $categories)
+        ->with('user_data', Session::get('oneauth'));
     }
 
     public function get_new()
     {
          if($this->is_admin($user_data))
         {
-            return View::make('home.new');
+            return View::make('home.new')
+            ->with('user_data', Session::get('oneauth'));
         }
         else
         {
-            return Redirect::to('/');
+            return Redirect::to('/')
+            ->with('user_data', Session::get('oneauth'));
         }
     }
     public function post_new()
@@ -80,11 +89,13 @@ class Home_Controller extends Base_Controller {
     {
         if($this->is_admin($user_data))
         {
-            return View::make('home.edit')->with('weekly' ,weeklymenu::find($id));
+            return View::make('home.edit')->with('weekly' ,weeklymenu::find($id))
+            ->with('user_data', Session::get('oneauth'));
         }
         else
         {
-            return Redirect::to('/');
+            return Redirect::to('/')
+            ->with('user_data', Session::get('oneauth'));;
         }
     }
 
