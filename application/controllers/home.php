@@ -25,7 +25,10 @@ class Home_Controller extends Base_Controller {
     }    
 
     public function get_catering(){
-        return View::make('home.catering');
+        $categories = category::all();
+        // dd($categories);
+        return View::make('home.catering')
+        ->with('categories', $categories);
     }
 
     public function get_new()
@@ -90,10 +93,8 @@ class Home_Controller extends Base_Controller {
        $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
             ->order_by('created_at', 'desc')
-            ->take(2)->get();
-            // dd($user_data);
-        
-        // $orders = DB::->paginate(2);
+            ->take(2)
+            ->get();
 
         return View::make('home.rate')
         ->with('user_data', $user_data)
@@ -105,52 +106,33 @@ class Home_Controller extends Base_Controller {
     {
         $user = DB::table('users')
             ->join('comments', 'users.uid', '=', 'comments.user_uid')
-            ->get();
-
-            $commentlist = '';
-
-           foreach($user as $comment)
-            {
-                $commentlist .= '<li><div class="commentContent">
-                            <div class="fbimgContainer span1">
-                                <img src="'.$comment->image.'" class="fbimg">
-                            </div>
-                            <div class="span6">
-                                <a href="'.$comment->facebooklink.'" class="fblink" target="_blank">'.$comment->name.'</a>
-                            </div>
-                            <div class="span6">
-
-                                <p>'.$comment->body.'</p>
-                            </div>
-                        </div>
-                        <div class="span7"><hr></div></li>';
-            }
+            ->order_by('created_at', 'desc')
+            ->paginate(1);
 
             return View::make('home.test')
-            ->with('comments',$commentlist);
-
+            ->with('user',$user);
     }
 
+    
+
     public function post_comment(){
-        $user_data = Session::get('oneauth');
-        $body = Input::get('body');
-         // dd($user_data['info']['uid']);
-        // dd($body);
-        if(!is_null($user_data)){
+        if($this->is_logged_in($user_data)){
+            $body = Input::get('body');
             Comment::create(array(
                 'user_uid' => $user_data['info']['uid'], 'body' => $body
             ));
             return Redirect::to('home/rate');    
         }else{
-            $errormsg = '<br>Du måste vara inloggad för att kunna kommentera<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
+            $errormsg = '<script>$(\'#myModal\').modal(\'show\')</script>';
+
             return Redirect::to('home/rate')->with('errormsg', $errormsg);
         }
 
 
     }
 
-    public function is_logged_in($user_data){
-        // $user_data = Session::get('oneauth');
+    private function is_logged_in(&$user_data){
+        $user_data = Session::get('oneauth');
         if(!is_null($user_data)){
             return true;
         }else{
