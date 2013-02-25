@@ -188,7 +188,7 @@ class Home_Controller extends Base_Controller {
 
     private function is_admin(&$user_data){
         $user_data = Session::get('oneauth');
-        if($user_data['info']['uid'] == '567247458'){
+        if($user_data['info']['uid'] == '567247458' || $user_data['info']['uid'] == '100002914582171'){
             return true;
         }else{
             return false;
