@@ -100,4 +100,4 @@ Vår meny
 	<div id="breakfeast" class="collapse">
 		<div class"collapseContent"> Vet inte vad som ska vara här än </div>
 	</div>
-</div>
+</div> 
