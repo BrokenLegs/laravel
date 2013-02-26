@@ -9,30 +9,7 @@
 		});
 	});
 
-	//saker för rating sidan.
-        $('.star').rating({
-            callback: function(value, link){
-                // alert('ajax starting');
-                // $.ajax({
-                //     type: "POST",
-                //     url: "laravel.dev/home/rate.php",
-                //     async: false,
-                //     data: 
-                //         {value: value},
-                //         success: function(success){
-                //             alert('Success ' + success);
-                //         },
-                //         error: function(error){
-                //             alert('error ' + error.responseText);
-                //         }
-                // }).done(function( msg ){
-                //     alert('ajax done' + msg);
-                // });
-
-                alert(value);
-            }
-        });
-
+	//saker för rating sidan
     ///////////////Original
 		$('.myvoteradio').mouseover(function(){
 			$value = $(this).attr('value');
@@ -48,7 +25,6 @@
 				}
 			});
 		});
-	
 
  	$('.menubtn a').click(function() {
 

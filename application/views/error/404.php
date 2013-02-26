@@ -101,10 +101,22 @@
 		<div class="error-spacer"></div>
 		<div role="main" class="main">
 			<?php $messages = array('We need a map.', 'I think we\'re lost.', 'We took a wrong turn.'); ?>
+			
+			<?php
+				function curPageURL() {
+				 	$pageURL = '';
+					 if ($_SERVER["SERVER_PORT"] != "80") {
+						  $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+					 } else {
+						  $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+					 }
+					 return $pageURL;
+				}
+			?>
 
 			<h1><?php echo $messages[mt_rand(0, 2)]; ?></h1>
 
-			<h2>Server Error: 404 (Not Found)</h2>
+			<h2>Server Error: 404 (Not Found): <?php echo curPageURL(); ?></h2>
 
 			<hr>
 

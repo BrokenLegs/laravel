@@ -92,14 +92,45 @@ class Home_Controller extends Base_Controller {
         
         // $orders = DB::->paginate(2);
 
-        $ratings = Rating::all();
+        $ratings = User::where('rating', '>', '0')->get();
+
+        $userRows = User::all();
+
+        $yourRating = 0;
+
+        foreach($userRows as $userRow)
+        {
+            if($user_data['info']['uid'] == $userRow->uid && $userRow->rating > 0){
+                $yourRating = $userRow->rating;
+            }
+        }
 
         return View::make('home.rate')
         ->with('user_data', $user_data)
         ->with('comments', $user)
-        ->with('ratings', $ratings);
+        ->with('ratings', $ratings)
+        ->with('yourRating', $yourRating);
         
     }
+
+    public function post_rating(){
+
+        $user_data = Session::get('oneauth');
+        $rating = Input::get('myvote');
+         // dd($user_data['info']['uid']);
+        // dd($body);
+        if(!is_null($user_data)){
+            $affected = DB::table('users')
+            ->where('uid', '=', $user_data['info']['uid'])
+            ->update(array(
+                'rating' => $rating
+            ));
+            return Redirect::to('home/rate');    
+        }else{
+            $errormsg = '<br>Du måste vara inloggad för att kunna betygssätta<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
+            return Redirect::to('home/rate')->with('errormsg', $errormsg);
+        }
+    }  
 
   public function get_test()
     {
@@ -147,21 +178,6 @@ class Home_Controller extends Base_Controller {
         }
 
 
-    }
-
-    public function post_rating(){
-        $user_data = Session::get('oneauth');
-         // dd($user_data['info']['uid']);
-        // dd($body);
-        if(!is_null($user_data)){
-            Comment::create(array(
-                'facebook_id' => $user_data['info']['uid'], 'value' => $value
-            ));
-            return Redirect::to('home/rate');    
-        }else{
-            $errormsg = '<br>Du måste vara inloggad för att kunna betygssätta<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
-            return Redirect::to('home/rate')->with('errormsg', $errormsg);
-        }
     }
 
     public function is_logged_in($user_data){

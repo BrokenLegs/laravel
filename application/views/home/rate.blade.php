@@ -9,7 +9,7 @@
 @foreach($ratings as $rating)
 	<?php
 		$amount_of_votes += 1;
-		$tempValue += $rating->value;
+		$tempValue += $rating->rating;
 	?>
 @endforeach
 <?php 
@@ -41,7 +41,8 @@
 			<div class="myvote span4">
 				<span class="qaz">Ditt betyg</span>
 				<div class="wsx">
-					{{Form::open('','',array('id'=>'ratingform'))}}
+					@if($yourRating == "")
+					{{Form::open('home/rating','POST',array('id'=>'ratingform'))}}
 						{{Form::radio('myvote', 1,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
@@ -52,7 +53,21 @@
 						{{Form::radio('myvote', 8,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 9,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 10,'checked', array('class'=>'star'));}}
-						<span class="votevalue"> -/10</span>
+						<span class="votevalue">-/10</span>
+						{{Form::submit('RATE')}}
+							@else 
+								{{Form::open('','',array('id'=>'ratingform'))}}
+								@for($i=1; $i<=10; $i++)
+									@if($i != $yourRating)
+										{{Form::radio('myvoted', $i,'', array('class'=>'star', 'disabled'=>'disabled'));}}
+									@else
+										{{Form::radio('myvoted', $i,'checked', array('class'=>'star', 'disabled'=>'disabled'));}}
+									@endif
+								@endfor
+								<span class="votevalue">{{ $yourRating; }}/10</span>
+							@endif
+						<br />
+						
 					{{Form::close()}}
 
 					<script type="text/javascript">
