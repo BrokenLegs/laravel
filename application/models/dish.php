@@ -1,6 +1,6 @@
 <?php
 
-class Dish extends Eloquent()
+class Dish extends Eloquent
 {
 
 	public static $timestamps = false;

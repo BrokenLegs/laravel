@@ -17,13 +17,6 @@
 	$score=$value;	
 ?>
 
-<!-- Behövs för Rating, sparar gammla värdet i en variabel -->
-<script type="text/javascript">
-	var oldVal = "<?php echo $score ?>";
-	var oldAmount = "<?php echo $amount_of_votes ?>";
-</script>
-<!-- EOF -->
-
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
@@ -35,8 +28,8 @@
     	</div>
 		<div class="offset1 span7 rating">
 			<div class="span1">
-				<d class="ratingStarVal">{{$score}}</d>
-				{{HTML::image('img/star.jpg', '', array('class = "ratingstar"'));}}
+				<d>{{$score}}</d>
+				{{HTML::image('img/star.jpg', '', array('class' => 'ratingstar"'));}}
 			</div> 
 			<div class="myvote span4">
 				<span class="qaz">Ditt betyg</span>
@@ -46,7 +39,7 @@
 						{{Form::radio('myvote', 1,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
+				   		{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 5,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 6,'', array('class'=>'star'));}}
 						{{Form::radio('myvote', 7,'', array('class'=>'star'));}}
@@ -79,11 +72,10 @@
 						if (Session::has('errormsg'))
 						{
 						    $errormsg = Session::get('errormsg');
-							echo '    <div class="alert alert-block error">
-		    							<button type="button" class="close" data-dismiss="alert">&times;</button>
-		    							'.$errormsg.'</div>';
+							echo $errormsg;
 						} 
 					?>
+
 
 				</div><br>
 				<span class="ratestats">Snitt {{$score}}/10 av {{$amount_of_votes}}st röster</span>
@@ -100,11 +92,9 @@
 			<hr>
 			<h4>Detta har andra skrivit</h4>
 			<hr>
-
 			<ul id="commentlist" class="commentlist" >
 				@foreach($comments as $comment)
 					<li>
-
 						<div class="commentContent">
 							<div class="fbimgContainer span1">
 								{{HTML::image($comment->image , '', array('class'=>'fbimg'));}}
@@ -127,17 +117,12 @@
 							</div>
 						</div>
 						<div class="span7"><hr></div>
-
 					</li>
 				@endforeach
 			</ul>
-			
-			<div id="loading" class="loading offset2 span6">Detta är loadingdiven</div>
+			<div class="scroll offset2 span6">Scrolla ner för fler kommentarer</div>
+			<div id="loading" class="loading offset2 span6">Slut på kommentarer</div>
 		</div>
-	</div>
-	<script>
-
-	
-	</script>
+	</div>	
 @endsection
 					

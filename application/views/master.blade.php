@@ -8,6 +8,9 @@
 	<meta name="viewport" content="width=device-width">
 </head>
 <body>
+@if(!is_null($user_data))
+	@include('partial.logged_in_as')
+@endif
 	<div class="container">	
 
 		<div class="offset1 span10 header">
