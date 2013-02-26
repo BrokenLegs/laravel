@@ -1,12 +1,12 @@
 
 <div class="only-mobile buttoncontainer">
-<button type="button" class="btn menubtn" data-toggle="collapse" data-target="#weeklyDish">
+<button type="button" class="btn menubtn width80" data-toggle="collapse" data-target="#weeklyDish">
 	Veckans rätter
 </button>
 
 <div id="weeklyDish" class="collapse"><div class="collapseContent"> @include('partial.weeklymenu')</div> </div>
 
-<button type="button" class="btn menubtn" data-toggle="collapse" data-target="#ourmenu">
+<button type="button" class="btn menubtn width80" data-toggle="collapse" data-target="#ourmenu">
 Vår meny
 </button>
 <div id="ourmenu" class="collapse" > 
@@ -94,7 +94,7 @@ Vår meny
     	</div>
  </div>
 
-	<button type="button" class="btn menubtn" data-toggle="collapse" data-target="#breakfeast">
+	<button type="button" class="btn menubtn width80" data-toggle="collapse" data-target="#breakfeast">
 	Frukost/Lunch
 	</button>
 	<div id="breakfeast" class="collapse">

@@ -110,7 +110,6 @@ class Home_Controller extends Base_Controller {
                     'description2' => Input::get('description2')
             ));
             return Redirect::to('home/menu');
-       
     }
 
     public function post_search()

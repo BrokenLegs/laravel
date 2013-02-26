@@ -24,6 +24,7 @@
 					$files = scandir($dir, 1);
 					$files = array_diff(scandir($dir), array('..', '.', 'Thumbs.db'));
 				?>
+				
 				@foreach($files as $file)
 					<div class="rightcol imgdiv">
 						<img src="/img/catering/images/{{$file}}" data-thumb="" alt="{{$file}}" />	

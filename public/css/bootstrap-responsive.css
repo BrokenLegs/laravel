@@ -896,6 +896,7 @@
 }
 
 /*Phonesize*/
+.width80{width: 80%;}
 @media (max-width: 480px) {
 .user{position: fixed; top:410px;bottom: 0px; width: 100%;}
 .collapseContent{margin-top: 20px;}

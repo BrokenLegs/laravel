@@ -42,7 +42,7 @@ form{margin:0px!important;}
 .listcomment{display: none;}
 .cateringmenuimg{float: right;max-height: 80px;margin-right: 50px;}
 .categoryitems{clear: left; margin-top: 50px;}
-.user{position: fixed; left:0px; top:0px; z-index:500; width:15%; 
+.user{position: fixed; left:0px;  z-index:500; width:15%; 
 	padding-top: 10px;
 	padding-bottom: 15px;
 	border-radius: 5px; 
