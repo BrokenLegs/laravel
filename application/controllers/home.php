@@ -133,7 +133,9 @@ class Home_Controller extends Base_Controller {
             ->take(5)
             ->get();
 
-        $ratings = User::where('rating', '>', '0')->get();
+        $average = User::where('rating', '>', '0')->avg('rating');
+        $count = User::where('rating', '>', '0')->count();
+
 
         $userRows = User::all();
 
@@ -149,7 +151,8 @@ class Home_Controller extends Base_Controller {
         return View::make('home.rate')
         ->with('user_data', $user_data)
         ->with('comments', $user)
-        ->with('ratings', $ratings)
+        ->with('average', $average)
+        ->with('count', $count)
         ->with('yourRating', $yourRating);
         
     }
@@ -168,7 +171,8 @@ class Home_Controller extends Base_Controller {
             ));
             return Redirect::to('home/rate');    
         }else{
-            $errormsg = '<br>Du måste vara inloggad för att kunna betygssätta<br><br>Logga in genom din <a href="http://laravel.dev/connect/session/facebook">facebook</a>';
+            $errormsg = '<script>$(\'#myModal\').modal(\'show\')</script>';
+
             return Redirect::to('home/rate')->with('errormsg', $errormsg);
         }
     }  
