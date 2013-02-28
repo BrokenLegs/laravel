@@ -4,7 +4,7 @@
 		<h3 id="myModalLabel">Du måste logga in</h3>
 	</div>
 	<div class="modal-body">
-		<p>För att kommentera måste du först logga in genom din facebook</p>
+		<p>För att kommentera eller betygsätta måste du först logga in genom din facebook</p>
 		<p>Logga in {{HTML::link('connect/session/facebook', 'här', array(''))}}</p>
 	</div>
 	<div class="modal-footer">

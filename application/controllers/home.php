@@ -133,11 +133,49 @@ class Home_Controller extends Base_Controller {
             ->take(5)
             ->get();
 
+        $average = User::where('rating', '>', '0')->avg('rating');
+        $count = User::where('rating', '>', '0')->count();
+
+
+        $userRows = User::all();
+
+        $yourRating = 0;
+
+        foreach($userRows as $userRow)
+        {
+            if($user_data['info']['uid'] == $userRow->uid && $userRow->rating > 0){
+                $yourRating = $userRow->rating;
+            }
+        }
+
         return View::make('home.rate')
         ->with('user_data', $user_data)
-        ->with('comments', $user);
+        ->with('comments', $user)
+        ->with('average', $average)
+        ->with('count', $count)
+        ->with('yourRating', $yourRating);
         
     }
+
+    public function post_rating(){
+
+        $user_data = Session::get('oneauth');
+        $rating = Input::get('myvote');
+         // dd($user_data['info']['uid']);
+        // dd($body);
+        if(!is_null($user_data)){
+            $affected = DB::table('users')
+            ->where('uid', '=', $user_data['info']['uid'])
+            ->update(array(
+                'rating' => $rating
+            ));
+            return Redirect::to('home/rate');    
+        }else{
+            $errormsg = '<script>$(\'#myModal\').modal(\'show\')</script>';
+
+            return Redirect::to('home/rate')->with('errormsg', $errormsg);
+        }
+    }  
 
   public function get_test()
     {

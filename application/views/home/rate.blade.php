@@ -1,14 +1,15 @@
 @layout('master')
 @section('content')
-<?php 
-	$score=7.7;
-	$amount_of_votes = 122;
-?>
-@if(!is_null($user_data))
-	@include('partial.logged_in_as')
-@endif
-
 	@include('partial.fbmodal')
+
+	<?php 
+	if (Session::has('errormsg'))
+	{
+	    $errormsg = Session::get('errormsg');
+		echo $errormsg;
+	} 
+?>
+
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
@@ -20,37 +21,43 @@
     	</div>
 		<div class="offset1 span7 rating">
 			<div class="span1">
-				<d>{{$score}}</d>
-				{{HTML::image('img/star.jpg', '', array('class' => 'ratingstar"'));}}
+				<d>{{ round($average, 1) }}</d>
+				{{ HTML::image('img/star.jpg', '', array('class' => 'ratingstar"')); }}
 			</div> 
 			<div class="myvote span4">
 				<span class="qaz">Ditt betyg</span>
 				<div class="wsx">
-					{{Form::open()}}
-						{{Form::radio('myvote', 1,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 2,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 3,'', array('class'=>'star'));}}
-				   		{{Form::radio('myvote', 4,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 5,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 6,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 7,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 8,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 9,'', array('class'=>'star'));}}
-						{{Form::radio('myvote', 10,'checked', array('class'=>'star'));}}
-						<span class="votevalue"> -/10</span>
-					{{Form::close()}}
-
-					<?php 
-						if (Session::has('errormsg'))
-						{
-						    $errormsg = Session::get('errormsg');
-							echo $errormsg;
-						} 
-					?>
-
+					@if($yourRating == "")
+						{{ Form::open('home/rating','POST',array('id'=>'ratingform')) }}
+							{{ Form::radio('myvote', 1,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 2,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 3,'', array('class'=>'star')); }}
+				   			{{ Form::radio('myvote', 4,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 5,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 6,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 7,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 8,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 9,'', array('class'=>'star')); }}
+							{{ Form::radio('myvote', 10,'checked', array('class'=>'star'));}}
+							<span class="votevalue">-/10</span>
+							{{Form::submit('Betygsätt', array('class' => 'btn-primary send'))}}
+					@else 
+						{{Form::open('','',array('id'=>'ratingform'))}}
+							@for($i=1; $i<=10; $i++)
+								@if($i != $yourRating)
+									{{ Form::radio('myvoted', $i,'', array('class'=>'star', 'disabled'=>'disabled')); }}
+								@else
+									{{ Form::radio('myvoted', $i,'checked', array('class'=>'star', 'disabled'=>'disabled')); }}
+								@endif
+							@endfor
+							<span class="votevalue">{{ $yourRating; }}/10</span>
+					@endif
+					<br />
+						
+					{{ Form::close() }}
 
 				</div><br>
-				<span class="ratestats">Snitt {{$score}}/10 av {{$amount_of_votes}}st röster</span>
+				<span class="ratestats">Snitt {{ round($average, 1) }}/10 av {{ $count }}st röster</span>
 			</div>
 		</div>
 		<div class="offset1 span7">
