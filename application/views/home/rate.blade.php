@@ -40,7 +40,7 @@
 							{{ Form::radio('myvote', 9,'', array('class'=>'star')); }}
 							{{ Form::radio('myvote', 10,'checked', array('class'=>'star'));}}
 							<span class="votevalue">-/10</span>
-							{{Form::submit('Betygsätt', array('class' => 'btn-primary send'))}}
+							{{Form::submit('Betygsätt', array('class' => 'btn send'))}}
 					@else 
 						{{Form::open('','',array('id'=>'ratingform'))}}
 							@for($i=1; $i<=10; $i++)
@@ -64,7 +64,7 @@
 			<h3>Kommentera</h3>	
 			{{Form::open('home/comment', 'post')}}
 				{{Form::textarea('body', '', array('class="commentfield"'));}}
-				{{Form::submit('Skicka', array('class="btn-primary send"'))}}
+				{{Form::submit('Skicka', array('class="btn send"'))}}
 			{{Form::close()}}
 		</div>
 		<div class="offset1 span8 commentsContainer">
