@@ -21,7 +21,7 @@ form{margin:0px!important;}
 .imgdiv{max-width: 170px; margin-left: 10px;margin-top: 30px;}
 .center{text-align: center;}
 .rating{position: relative;}
-.rating d {position: absolute; left: 55px;top: 7px; font-weight: bold; font-size: 1.2em; z-index: 10;}
+.rating d {position: absolute; left: 53px;top: 24px; font-weight: bold; font-size: 1.2em; z-index: 10;}
 .myvote{margin-left: 35px!important;}
 .qaz{width:100px;float: left;}
 .wsx{width: 240px; float: left;}
