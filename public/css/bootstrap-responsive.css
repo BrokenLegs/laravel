@@ -896,8 +896,10 @@
 }
 
 /*Phonesize*/
-.width80{width: 80%;}
 @media (max-width: 480px) {
+  .ratestats{margin:0; left:-34px;}
+.votevalue{margin-left: -10px;}
+.width80{width: 80%;}
 .user{position: fixed; top:410px;bottom: 0px; width: 100%;}
 .collapseContent{margin-top: 20px;}
 .menu-icon{ font-size: 30px; border-radius: 5px; padding: 1px; position: relative; top:3px; color: black;}

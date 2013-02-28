@@ -34,7 +34,7 @@ $(window).scroll(function () {
                         $('.scroll').fadeOut('slow', function(){
                         $('.loading').fadeIn('slow');
                         });
-                        die();
+                        return;
                     }
                     $('#commentlist').append(html);
                     $('.listcomment').fadeIn('slow');

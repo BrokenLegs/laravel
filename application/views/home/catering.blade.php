@@ -36,21 +36,7 @@
 
 		<div class="tab-pane" id="cateringmenu">
 			<div class="offset1">
-				@foreach($categories as $category)
-					<div class="span4">
-						<h4 class="leftcol">{{$category->category}}</h4>
-							<?php $dishes = Category::find($category->id)->dishes()->get();
-							?>
-						{{HTML::image('img/categories/star.jpg', ' ', array('class' => 'cateringmenuimg'));}}
-						<ul class="categoryitems">
-							@foreach ($dishes as $dish) 	
-							<li>{{$dish->dish}}</li>
-							@endforeach
-						
-							
-						</ul>
-					</div>
-				@endforeach
+				
 			</div>
 		</div>
 	</div>
