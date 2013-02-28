@@ -1,16 +1,15 @@
 @layout('master')
 @section('content')
+	@include('partial.fbmodal')
 
-<?php 
-		if (Session::has('errormsg'))
+	<?php 
+	if (Session::has('errormsg'))
 	{
 	    $errormsg = Session::get('errormsg');
 		echo $errormsg;
 	} 
 ?>
 
-
-	@include('partial.fbmodal')
 	<div class="offset1 span7">
 		<h3 class="center">Betyg</h3>
 	</div>
